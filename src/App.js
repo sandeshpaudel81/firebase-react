@@ -5,6 +5,7 @@ import './App.css';
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import ProjectList from './pages/ProjectList';
+import AlbumList from './pages/AlbumList';
 
 function App() {
   // const usersCollectionRef = collection(db, "admins")
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} exact/>
         <Route path="/projects" element={<ProjectList/>} />
+        <Route path="/albums" element={<AlbumList/>} />
       </Routes>
     </BrowserRouter>
   );
