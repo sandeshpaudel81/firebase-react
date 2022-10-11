@@ -1,8 +1,20 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, {useEffect, useState} from 'react'
+import { db } from '../firebase-config'
+import { collection, onSnapshot, query } from 'firebase/firestore'
 
 const ProjectList = () => {
-  const projects = useSelector(state => state.projectList)
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    const projectsRef =  collection(db, "projects")
+    const q = query(projectsRef);
+    onSnapshot(q, (snapshot) => {
+      const projects = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setProjects(projects)
+    })
+  }, []);
   return (
     <div>
       {projects.map(project => (
