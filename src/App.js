@@ -5,6 +5,8 @@ import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import ProjectList from './pages/ProjectList';
 import AlbumList from './pages/AlbumList';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   // const usersCollectionRef = collection(db, "admins")
@@ -17,11 +19,15 @@ function App() {
   // }, [])
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home/>} exact/>
-        <Route path="/projects" element={<ProjectList/>} />
-        <Route path="/albums" element={<AlbumList/>} />
-      </Routes>
+      <Header/>
+      <main className='container mx-auto'>
+        <Routes>
+          <Route path="/" element={<Home/>} exact/>
+          <Route path="/projects" element={<ProjectList/>} />
+          <Route path="/albums" element={<AlbumList/>} />
+        </Routes>
+      </main>
+      <Footer/>
     </BrowserRouter>
   );
 }
