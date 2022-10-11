@@ -1,3 +1,8 @@
-import { } from ''
+import { configureStore } from '@reduxjs/toolkit'
+import projectListReducer from './features/projectListSlice'
 
-export default store = {}
+export const store = configureStore({
+    reducer: {
+        projectList: projectListReducer,
+    },
+})
