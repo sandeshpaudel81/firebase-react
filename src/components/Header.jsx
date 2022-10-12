@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import {FaBars} from 'react-icons/fa'
+import {FaBars, FaTimes, FaAngleDown} from 'react-icons/fa'
 
 
 const Header = () => {
-    const openSidebar = () => {
-        document.getQuerySelector('.sidebar').classList.remove('left-[-100%]')
-        document.getQuerySelector('.sidebar').classList.add('left-0')
-    };  
+    // const openSidebar = () => {
+    //     document.getQuerySelector('.sidebar').classList.remove('left-[-100%]')
+    //     document.getQuerySelector('.sidebar').classList.add('left-0')
+    // };  
     return (
         <nav className="bg-slate-300 shadow-lg shadow-gray-400">
             <div className="container mx-auto">
@@ -18,7 +18,7 @@ const Header = () => {
                     <ul className="hidden md:flex uppercase items-center gap-10 text-gray-600">
                         <li className="hover:text-primary"><Link to='/'><p className="p-3">Home</p></Link></li>
                         <div className="p-3 group cursor-pointer">
-                            <h2 className="group-hover:text-primary">About</h2>
+                            <h2 className="group-hover:text-primary flex">About <FaAngleDown className='mt-1 ml-2'/></h2>
                             <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
                                 <div className="py-3">
                                     <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-2 border-gray-400"></div>
@@ -32,7 +32,7 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="p-3 group cursor-pointer">
-                            <h2 className="group-hover:text-primary">Projects</h2>
+                            <h2 className="group-hover:text-primary flex">Projects <FaAngleDown className='mt-1 ml-2'/></h2>
                             <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
                                 <div className="py-3">
                                     <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-2 border-gray-400"></div>
@@ -46,7 +46,7 @@ const Header = () => {
                         </div>
                         <li className="hover:text-primary"><Link to='#'><p className="p-3">News</p></Link></li>
                         <div className="p-3 group cursor-pointer">
-                            <h2 className="group-hover:text-primary">Team</h2>
+                            <h2 className="group-hover:text-primary flex">Team <FaAngleDown className='mt-1 ml-2'/></h2>
                             <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
                                 <div className="py-3">
                                     <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-2 border-gray-400"></div>
@@ -62,25 +62,41 @@ const Header = () => {
                         <li className="hover:text-primary"><Link to='#'><p className="p-3">Get Involved</p></Link></li>
                         <li className="hover:text-primary"><Link to='#'><p className="p-3">Publications</p></Link></li>
                         <li className="hover:text-primary"><Link to='#'><p className="p-3">Contact</p></Link></li>
+                        <li className="p-3 my-1 rounded-lg bg-primary hover:bg-blue-500 text-white"><Link to='#'>Donate</Link></li>
                     </ul>
-                    <ul className="sidebar md:hidden bg-primaryRegular absolute w-full h-full bottom-0 text-white duration-500 left-[-100%]">
-                        <div className="flex">
-                            <img src="#" alt="logo"/>
-                            <div className="absolute right-4 cursor-pointer" onclick="HideSidebar()"><i className="fa-solid fa-xmark text-2xl text-primaryExtraDark"></i></div>
+                    <ul className="sidebar md:hidden bg-primary absolute w-full h-full bottom-0 text-white duration-500 left-0">
+                        <div className="flex bg-white p-5">
+                            <img src={logo} alt="kadam myagdi logo"/>
+                            <div className="absolute right-4 top-2 cursor-pointer" onclick="HideSidebar()"><FaTimes className='text-2xl text-black hover:text-primary'/></div>
                         </div>
                         <li className="p-3"><Link to='#'>Home</Link></li>
-                        <li className="p-3"><Link to='#'>About</Link></li>
-                        <li className="p-3"><Link to='#'>News/Events</Link></li>
-                        <li className="p-3"><Link to='#'>Team</Link></li>
-                        <li className="p-3"><Link to='#'>Articles</Link></li>
-                        <li className="p-3"><Link to='#'>Downloads</Link></li>
+                        <li className="p-3 flex">About <FaAngleDown className='mt-1 ml-2'/></li>
+                        <li className="p-3 flex">Projects <FaAngleDown className='mt-1 ml-2'/></li>
+                        <li className="p-3"><Link to='#'>News</Link></li>
+                        <li className="p-3 flex">Team <FaAngleDown className='mt-1 ml-2'/></li>
+                        <div className="p-3 group cursor-pointer">
+                            <h2 className="group-hover:text-gray-400 flex">Team <FaAngleDown className='mt-1 ml-2'/></h2>
+                            <div className="hidden group-hover:block hover:block duration-700">
+                                {/* <div className="py-3">
+                                    <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-2 border-gray-400"></div>
+                                </div> */}
+                                <div>
+                                    <li className="hover:text-gray-400"><Link to='#'><p className="p-3">Board Members</p></Link></li>
+                                    <li className="hover:text-gray-400"><Link to='#'><p className="p-3">Advisors</p></Link></li>
+                                    <li className="hover:text-gray-400"><Link to='#'><p className="p-3">General Members</p></Link></li>
+                                    <li className="hover:text-gray-400"><Link to='#'><p className="p-3">Life Members</p></Link></li>
+                                </div>
+                            </div>
+                        </div>
+                        <li className="p-3"><Link to='#'>Get Involved</Link></li>
+                        <li className="p-3"><Link to='#'>Publications</Link></li>
                         <li className="p-3"><Link to='#'>Contact</Link></li>
-                        <li className="p-3 my-1 rounded-lg bg-secondaryR"><Link to='#'>Jaycess Cup 2022</Link></li>
+                        <li className="p-3 my-1"><Link to='#' className='bg-slate-400 p-3 px-5 rounded-lg text-black'>Donate</Link></li>
                     </ul>
                 </div>
                 <div className="md:hidden flex p-3">
                     <div>Current Page</div>
-                    <div className="ml-auto cursor-pointer" onclick={openSidebar}><FaBars className='text-2xl hover:text-primary'/></div>
+                    <div className="ml-auto cursor-pointer" onclick=""><FaBars className='text-2xl hover:text-primary'/></div>
                 </div>
             </div>
         </nav>
