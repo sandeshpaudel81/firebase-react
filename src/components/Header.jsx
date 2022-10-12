@@ -1,14 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import {FaBars, FaTimes, FaAngleDown} from 'react-icons/fa'
 
 
 const Header = () => {
-    // const openSidebar = () => {
-    //     document.getQuerySelector('.sidebar').classList.remove('left-[-100%]')
-    //     document.getQuerySelector('.sidebar').classList.add('left-0')
-    // };  
+    const [sidebarOpen, setSidebarOpen] = useState(false) 
     return (
         <nav className="bg-slate-300 shadow-lg shadow-gray-400">
             <div className="container mx-auto">
@@ -64,10 +61,10 @@ const Header = () => {
                         <li className="hover:text-primary"><Link to='#'><p className="p-3">Contact</p></Link></li>
                         <li className="p-3 my-1 rounded-lg bg-primary hover:bg-blue-500 text-white"><Link to='#'>Donate</Link></li>
                     </ul>
-                    <ul className="sidebar md:hidden bg-primary absolute w-full h-full bottom-0 text-white duration-500 left-0">
+                    <ul className={`sidebar md:hidden bg-primary absolute w-full h-full bottom-0 text-white duration-500 ${sidebarOpen ? 'left-0':'left-[-100%]'}`}>
                         <div className="flex bg-white p-5">
                             <img src={logo} alt="kadam myagdi logo"/>
-                            <div className="absolute right-4 top-2 cursor-pointer" onclick="HideSidebar()"><FaTimes className='text-2xl text-black hover:text-primary'/></div>
+                            <div className="absolute right-4 top-2 cursor-pointer" onclick={() => setSidebarOpen(false)}><FaTimes className='text-2xl text-black hover:text-primary'/></div>
                         </div>
                         <li className="p-3"><Link to='#'>Home</Link></li>
                         <li className="p-3 flex">About <FaAngleDown className='mt-1 ml-2'/></li>
@@ -96,7 +93,7 @@ const Header = () => {
                 </div>
                 <div className="md:hidden flex p-3">
                     <div>Current Page</div>
-                    <div className="ml-auto cursor-pointer" onclick=""><FaBars className='text-2xl hover:text-primary'/></div>
+                    <div className="ml-auto cursor-pointer" onclick={() => setSidebarOpen(true)}><FaBars className='text-2xl hover:text-primary'/></div>
                 </div>
             </div>
         </nav>
