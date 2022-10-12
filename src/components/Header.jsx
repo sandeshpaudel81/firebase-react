@@ -1,21 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../assets/logo.png'
 
 const Header = () => {
   return (
     <nav className="bg-slate-300 shadow-lg shadow-gray-400">
         <div className="container mx-auto">
             <div className="flex items-center justify-around font-semibold">
-                <h1 className=''>Logo</h1>
+                <div className='w-64'><img src={logo} alt='Kadam Myagdi Logo'></img></div>
                 <ul className="hidden md:flex uppercase items-center gap-10 text-gray-600">
                     <li className="hover:text-primary"><Link to='/'><p className="p-3">Home</p></Link></li>
                     <div className="p-3 group cursor-pointer">
                         <h2 className="group-hover:text-primary">About</h2>
-                        <div className="absolute top-10 hidden group-hover:block hover:block duration-700">
+                        <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
                             <div className="py-3">
-                                <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45"></div>
+                                <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-2 border-gray-400"></div>
                             </div>
-                            <div className="bg-slate-300">
+                            <div className="bg-slate-300 border-2 border-gray-400">
                                 <li className="hover:text-primary"><Link to='#'><p className="p-3">Objectives</p></Link></li>
                                 <li className="hover:text-primary"><Link to='#'><p className="p-3">Vision</p></Link></li>
                                 <li className="hover:text-primary"><Link to='#'><p className="p-3">Organogram</p></Link></li>
@@ -25,11 +26,11 @@ const Header = () => {
                     </div>
                     <div className="p-3 group cursor-pointer">
                         <h2 className="group-hover:text-primary">Projects</h2>
-                        <div className="absolute top-10 hidden group-hover:block hover:block duration-700">
+                        <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
                             <div className="py-3">
-                                <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45"></div>
+                                <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-2 border-gray-400"></div>
                             </div>
-                            <div className="bg-slate-300">
+                            <div className="bg-slate-300 border-2 border-gray-400">
                                 <li className="hover:text-primary"><Link to='#'><p className="p-3">Ongoing Projects</p></Link></li>
                                 <li className="hover:text-primary"><Link to='#'><p className="p-3">Completed Projects</p></Link></li>
                                 <li className="hover:text-primary"><Link to='#'><p className="p-3">All Projects</p></Link></li>
@@ -39,11 +40,11 @@ const Header = () => {
                     <li className="hover:text-primary"><Link to='#'><p className="p-3">News</p></Link></li>
                     <div className="p-3 group cursor-pointer">
                         <h2 className="group-hover:text-primary">Team</h2>
-                        <div className="absolute top-10 hidden group-hover:block hover:block duration-700">
+                        <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
                             <div className="py-3">
-                                <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45"></div>
+                                <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-2 border-gray-400"></div>
                             </div>
-                            <div className="bg-slate-300">
+                            <div className="bg-slate-300 border-2 border-gray-400">
                                 <li className="hover:text-primary"><Link to='#'><p className="p-3">Board Members</p></Link></li>
                                 <li className="hover:text-primary"><Link to='#'><p className="p-3">Advisors</p></Link></li>
                                 <li className="hover:text-primary"><Link to='#'><p className="p-3">General Members</p></Link></li>
