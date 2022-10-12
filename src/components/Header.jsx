@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
+import {FaBars} from 'react-icons/fa'
+
 
 const Header = () => {
   return (
     <nav className="bg-slate-300 shadow-lg shadow-gray-400">
         <div className="container mx-auto">
             <div className="flex items-center justify-around font-semibold">
-                <div className='w-64'><img src={logo} alt='Kadam Myagdi Logo'></img></div>
+                <div className='hidden md:block w-64'><img src={logo} alt='Kadam Myagdi Logo'></img></div>
                 <ul className="hidden md:flex uppercase items-center gap-10 text-gray-600">
                     <li className="hover:text-primary"><Link to='/'><p className="p-3">Home</p></Link></li>
                     <div className="p-3 group cursor-pointer">
@@ -73,7 +75,7 @@ const Header = () => {
             </div>
             <div className="md:hidden flex p-3">
                 <div className="text-white">Current Page</div>
-                <div className="text-white ml-auto cursor-pointer" onclick="OpenSidebar()"><i className="fa-solid fa-bars"></i></div>
+                <div className="text-white ml-auto cursor-pointer" onclick="OpenSidebar()"><FaBars/></div>
             </div>
         </div>
     </nav>
