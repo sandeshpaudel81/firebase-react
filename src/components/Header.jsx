@@ -18,7 +18,7 @@ const Header = () => {
                             <h2 className="group-hover:text-primary flex">About <FaAngleDown className='mt-1 ml-2'/></h2>
                             <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
                                 <div className="py-3">
-                                    <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-2 border-gray-400"></div>
+                                    <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-l-2 border-t-2 border-gray-400"></div>
                                 </div>
                                 <div className="bg-slate-300 border-2 border-gray-400">
                                     <li className="hover:text-primary"><Link to='#'><p className="p-3">Objectives</p></Link></li>
@@ -32,7 +32,7 @@ const Header = () => {
                             <h2 className="group-hover:text-primary flex">Projects <FaAngleDown className='mt-1 ml-2'/></h2>
                             <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
                                 <div className="py-3">
-                                    <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-2 border-gray-400"></div>
+                                    <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-l-2 border-t-2 border-gray-400"></div>
                                 </div>
                                 <div className="bg-slate-300 border-2 border-gray-400">
                                     <li className="hover:text-primary"><Link to='#'><p className="p-3">Ongoing Projects</p></Link></li>
@@ -46,7 +46,7 @@ const Header = () => {
                             <h2 className="group-hover:text-primary flex">Team <FaAngleDown className='mt-1 ml-2'/></h2>
                             <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
                                 <div className="py-3">
-                                    <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-2 border-gray-400"></div>
+                                    <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-l-2 border-t-2 border-gray-400"></div>
                                 </div>
                                 <div className="bg-slate-300 border-2 border-gray-400">
                                     <li className="hover:text-primary"><Link to='#'><p className="p-3">Board Members</p></Link></li>
@@ -56,12 +56,12 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <li className="hover:text-primary"><Link to='#'><p className="p-3">Get Involved</p></Link></li>
+                        <li className="hover:text-primary"><Link to='#'><p className="p-3">Gallery</p></Link></li>
                         <li className="hover:text-primary"><Link to='#'><p className="p-3">Publications</p></Link></li>
                         <li className="hover:text-primary"><Link to='#'><p className="p-3">Contact</p></Link></li>
                         <li className="p-3 my-1 rounded-lg bg-primary hover:bg-blue-500 text-white"><Link to='#'>Donate</Link></li>
                     </ul>
-                    <ul className={`sidebar md:hidden bg-primary absolute w-full h-full bottom-0 text-white uppercase duration-500 ${sidebarOpen ? 'left-0':'left-[-100%]'}`}>
+                    <ul className={`sidebar md:hidden bg-primary fixed w-full h-full overflow-y-scroll bottom-0 text-white uppercase duration-500 ${sidebarOpen ? 'left-0':'left-[-100%]'}`}>
                         <div className="flex bg-white p-5">
                             <img src={logo} alt="kadam myagdi logo"/>
                             <div className="absolute right-4 top-2 cursor-pointer" onClick={() => setSidebarOpen(false)}><FaTimes className='text-2xl text-black hover:text-primary'/></div>
@@ -97,7 +97,7 @@ const Header = () => {
                         <li className="border-b-2 hover:text-primaryDark"><Link to='#'><h1 className='p-3'>Get Involved</h1></Link></li>
                         <li className="border-b-2 hover:text-primaryDark"><Link to='#'><h1 className='p-3'>Publications</h1></Link></li>
                         <li className="border-b-2 hover:text-primaryDark"><Link to='#'><h1 className='p-3'>Contact</h1></Link></li>
-                        <li className="p-3 my-1"><Link to='#' className='bg-slate-400 p-3 px-5 rounded-lg text-black'>Donate</Link></li>
+                        <li className="p-3 my-1"><Link to='#' className='bg-primaryDark p-3 px-5 rounded-lg text-white hover:bg-primaryD'>Donate</Link></li>
                     </ul>
                 </div>
                 <div className="md:hidden flex p-3">
