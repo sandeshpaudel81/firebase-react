@@ -13,7 +13,8 @@ module.exports = {
         "2xl": "1536px",
       },
       colors: {
-        primary: "#0080ff"
+        primary: "#0080ff",
+        primaryDark: "#048",
       }
     },
   },
