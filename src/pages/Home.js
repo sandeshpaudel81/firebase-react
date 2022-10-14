@@ -5,16 +5,14 @@ const Home = () => {
     return (
         <div>
             {/* Carousel */}
-            <div>
-                <div className='carouselBg'>
-                    <div className='container mx-auto'>
-                        <div className='grid grid-cols-2'>
-                            <div>
-                                <h1>Carousel 1</h1>
-                            </div>
-                            <div>
-                                <img src={car1} alt='carousel-1' className='w-full'/>
-                            </div>
+            <div className='carouselBg py-16'>
+                <div className='container mx-auto'>
+                    <div className='grid grid-cols-8'>
+                        <div className='col-span-3 text-white'>
+                            <h1>Carousel 1</h1>
+                        </div>
+                        <div className='col-span-5'>
+                            <img src={car1} alt='carousel-1' className='w-full'/>
                         </div>
                     </div>
                 </div>
