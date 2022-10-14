@@ -16,6 +16,9 @@ module.exports = {
         primary: "#0080ff",
         primaryD: "#05a",
         primaryDark: "#048",
+      },
+      backgroundImage: {
+        carouselBg: "./src/assets/carouselBg.jpg"
       }
     },
   },
