@@ -25,3 +25,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.carouselBg {
+  background-image: url('./assets/carouselBg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
