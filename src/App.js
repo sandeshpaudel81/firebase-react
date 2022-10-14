@@ -20,7 +20,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header/>
-      <main className='container mx-auto'>
+      <main>
         <Routes>
           <Route path="/" element={<Home/>} exact/>
           <Route path="/projects" element={<ProjectList/>} />
