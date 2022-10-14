@@ -7,7 +7,7 @@ import {FaBars, FaTimes, FaAngleDown} from 'react-icons/fa'
 const Header = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false) 
     return (
-        <nav className="bg-slate-300 shadow-lg shadow-gray-400">
+        <nav className="bg-slate-300 shadow-lg shadow-gray-400 relative z-20">
             <div className="container mx-auto">
                 <div className='md:hidden w-4/5 mx-auto'><img src={logo} alt='Kadam Myagdi Logo'></img></div>
                 <div className="flex items-center justify-around font-semibold">
