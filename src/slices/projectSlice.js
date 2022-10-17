@@ -27,7 +27,8 @@ export function fetchProducts(){
             const projects = await getDocs(
                 query(collection(db, "projects"))
             );
-            return projects.docs.map((doc) => doc.data()); 
+            const data = projects.docs.map((doc) => doc.data());
+            dispatch(setProjects(data)) 
         } catch(err) {
 
         }
