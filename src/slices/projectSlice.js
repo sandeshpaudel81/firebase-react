@@ -11,6 +11,9 @@ const projectSlice = createSlice({
     reducers: {
         setProjects(state, action){
             state.data = action.payload
+        },
+        setStatus(state, action){
+            state.status = action.payload
         }
     }
 })
@@ -23,14 +26,16 @@ export default projectSlice.reducer;
 // thunks
 export function fetchProducts(){
     return async function fetchProductsThunk(dispatch, getState){
+        dispatch(setStatus('loading'))
         try {
             const projects = await getDocs(
                 query(collection(db, "projects"))
             );
             const data = projects.docs.map((doc) => doc.data());
-            dispatch(setProjects(data)) 
+            dispatch(setProjects(data))
+            dispatch(setStatus('idle')) 
         } catch(err) {
-
+            dispatch(setStatus('error'))
         }
     }
 }
