@@ -24,8 +24,8 @@ export default projectSlice.reducer;
 
 
 // thunks
-export function fetchProducts(){
-    return async function fetchProductsThunk(dispatch, getState){
+export function fetchProjects(){
+    return async function fetchProjectsThunk(dispatch, getState){
         dispatch(setStatus('loading'))
         try {
             const projects = await getDocs(

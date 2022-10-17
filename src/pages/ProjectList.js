@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../slices/projectSlice';
+import { fetchProjects } from '../slices/projectSlice';
 
 const ProjectList = () => {
     const dispatch = useDispatch();
-    const {data: projects, status} = useSelector(state => state.product);
+    const {data: projects, status} = useSelector(state => state.project);
 
     useEffect(() => {
-        dispatch(fetchProducts())
+        dispatch(fetchProjects())
     }, [dispatch]);
     return (
         <div>
