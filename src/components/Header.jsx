@@ -37,7 +37,7 @@ const Header = () => {
                                 <div className="bg-slate-300 border-2 border-gray-400">
                                     <li className="hover:text-primary"><Link to='#'><p className="p-3">Ongoing Projects</p></Link></li>
                                     <li className="hover:text-primary"><Link to='#'><p className="p-3">Completed Projects</p></Link></li>
-                                    <li className="hover:text-primary"><Link to='#'><p className="p-3">All Projects</p></Link></li>
+                                    <li className="hover:text-primary"><Link to='/projects'><p className="p-3">All Projects</p></Link></li>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@ const Header = () => {
                             <div className='px-4 pt-4'>
                                 <li className="hover:text-primaryDark"><Link to='#'><p className="p-3">Ongoing Projects</p></Link></li>
                                 <li className="hover:text-primaryDark"><Link to='#'><p className="p-3">Completed Projects</p></Link></li>
-                                <li className="hover:text-primaryDark"><Link to='#'><p className="p-3">All Projects</p></Link></li>
+                                <li className="hover:text-primaryDark"><Link to='/projects'><p className="p-3">All Projects</p></Link></li>
                             </div>
                         </div>
                         <li className="border-b-2 hover:text-primaryDark"><Link to='#'><h1 className='p-3'>News</h1></Link></li>

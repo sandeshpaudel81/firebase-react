@@ -23,6 +23,11 @@ const Carousel = () => {
                         </div>
                     </div>
                 ))}
+                <div>
+                    {slides.forEach(() => (
+                        <a href='#'>1</a>
+                    ))}
+                </div>
             </div>
         </div>
     )
