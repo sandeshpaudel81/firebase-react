@@ -1,11 +1,19 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import {FaBars, FaTimes, FaAngleDown} from 'react-icons/fa'
 
 
 const Header = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false) 
+    const [currentPage, setCurrentPage] = useState("Home")
+
+    const location = useLocation()
+    useEffect(() => {
+        setSidebarOpen(false)
+        location.pathname === '/' && setCurrentPage("Home")
+        location.pathname === '/projects' && setCurrentPage("Projects")
+    }, [location])
     return (
         <nav className="bg-slate-300 shadow-lg shadow-gray-400 relative z-20">
             <div className="container mx-auto">
@@ -66,7 +74,7 @@ const Header = () => {
                             <img src={logo} alt="kadam myagdi logo"/>
                             <div className="absolute right-4 top-2 cursor-pointer" onClick={() => setSidebarOpen(false)}><FaTimes className='text-2xl text-black hover:text-primary'/></div>
                         </div>
-                        <li className="border-b-2 hover:text-primaryDark"><Link to='#'><h1 className='p-3'>Home</h1></Link></li>
+                        <li className="border-b-2 hover:text-primaryDark"><Link to='/'><h1 className='p-3'>Home</h1></Link></li>
                         <div className="border-b-2 p-3 cursor-pointer">
                             <h2 className="group-hover:text-primaryDark flex">About <FaAngleDown className='mt-1 ml-2'/></h2>
                             <div className='px-4 pt-4'>
@@ -101,7 +109,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="md:hidden flex p-3">
-                    <div>Current Page</div>
+                    <div className='uppercase font-semibold'>{currentPage}</div>
                     <div className="ml-auto cursor-pointer" onClick={() => setSidebarOpen(true)}><FaBars className='text-2xl hover:text-primary'/></div>
                 </div>
             </div>
