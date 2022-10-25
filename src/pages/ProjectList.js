@@ -15,6 +15,7 @@ const ProjectList = () => {
             <div key={project.id}>
             <h1>{project.title}</h1>
             <h2>{project.objectives}</h2>
+            <h2>{project.id}</h2>
             </div>
         ))}
         </div>

@@ -28,11 +28,14 @@ export function fetchProjects(){
     return async function fetchProjectsThunk(dispatch, getState){
         dispatch(setStatus('loading'))
         try {
+            let projectList = []
             const projects = await getDocs(
                 query(collection(db, "projects"))
             );
-            const data = projects.docs.map((doc) => doc.data());
-            dispatch(setProjects(data))
+            projects.docs.forEach((doc) => {
+                projectList.push({ ...doc.data(), id: doc.id})
+            });
+            dispatch(setProjects(projectList))
             dispatch(setStatus('idle')) 
         } catch(err) {
             dispatch(setStatus('error'))
