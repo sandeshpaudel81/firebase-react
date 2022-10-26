@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import car1 from '../assets/car1.jpg'
 import carouselBg from '../assets/carouselBg.jpg'
 import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
+import {motion} from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 
 const Carousel = () => {
     const slides = [
@@ -38,6 +40,7 @@ const Carousel = () => {
         return () => clearInterval(slideInterval)
     }, [currentSlide])
     return (
+        <AnimatePresence>
         <div className='carouselBg py-5 md:py-20 relative z-10'>
             <div className='container mx-auto relative'>
                 <button className='absolute p-2 group left-0 md:inset-y-0' onClick={prevSlide}><FaAngleLeft className='text-white group-hover:text-primary text-5xl'/></button>
@@ -47,14 +50,15 @@ const Carousel = () => {
                         <div className='col-span-8 md:col-span-5 md:order-last p-2 md:p-3 md:px-20'>
                             <img src={slide.image} alt={slide.caption} className='w-full max-h-[350px] md:max-h-[600px] object-contain rounded-md'/>
                         </div>
-                        <div className='col-span-8 md:col-span-3 text-white p-2 md:pt-48 md:pl-20'>
+                        <motion.div className='col-span-8 md:col-span-3 text-white p-2 md:pt-48 md:pl-20' initial={{opacity: 0}} animate={{opacity: 1, transition:{duration: 0.5}}}>
                             <p className='bg-gray-600/75 p-3 rounded-md'>{slide.caption}</p>
                             <div><button className='bg-primary rounded-lg px-5 py-3 mt-3 md:mt-8  hover:bg-primaryDark'>See More...</button></div>
-                        </div>
+                        </motion.div>
                     </div>
                 ))}
             </div>
         </div>
+        
     )
 }
 
