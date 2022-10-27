@@ -40,7 +40,6 @@ const Carousel = () => {
         return () => clearInterval(slideInterval)
     }, [currentSlide])
     return (
-        <AnimatePresence>
         <div className='carouselBg py-5 md:py-20 relative z-10'>
             <div className='container mx-auto relative'>
                 <button className='absolute p-2 group left-0 md:inset-y-0' onClick={prevSlide}><FaAngleLeft className='text-white group-hover:text-primary text-5xl'/></button>
@@ -58,7 +57,6 @@ const Carousel = () => {
                 ))}
             </div>
         </div>
-        
     )
 }
 
