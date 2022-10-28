@@ -34,6 +34,13 @@ code {
 }
 
 .messageFromChairmanBg {
+  background-image: url('./assets/message.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.chairmanBg {
   background-image: url('./assets/blob.svg');
   background-position: center;
   background-repeat: no-repeat;
