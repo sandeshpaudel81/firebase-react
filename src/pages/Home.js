@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from '../components/Carousel'
-import Chairman from '../assets/chairman.png'
+import Chairman from '../assets/chairman-image.png'
 
 const Home = () => {
     return (
@@ -31,7 +31,16 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div>Projects</div>
+
+            {/* Projects */}
+            <div className='bg-slate-300'>
+                <div className='container mx-auto py-20'>
+                    <div className='border-l-8 border-primary px-5'>
+                        <h2 className='text-primary font-bold text-3xl'>Our <span className='text-primaryDark'>Projects</span></h2>
+                        <p className='uppercase text-gray-600 text-sm font-medium mt-2'>asdflksadjgl;kjewiofcnw</p>
+                    </div>
+                </div>
+            </div>
             <div>News</div>
             <div>Awards & Achievements</div>
             <div>Gallery</div>
