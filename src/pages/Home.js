@@ -51,7 +51,7 @@ const Home = () => {
                         {projects.map((project) => (
                             <div className='col-span-2 md:col-span-1'>
                                 <Link to="#">
-                                <div className='grid grid-cols-5 bg-slate-300 shadow-xl hover:shadow-2xl hover:scale-[1.02] duration-300 rounded-lg overflow-hidden group'>
+                                <div className='grid grid-cols-5 bg-slate-300 shadow-md shadow-white hover:shadow-lg hover:shadow-white hover:scale-[1.02] duration-300 rounded-lg overflow-hidden group'>
                                     <div className='col-span-5 md:col-span-2'>
                                         <img src={project.image} alt={project.content} className="w-full h-[250px] md:h-[200px] object-cover object-center"/>
                                     </div>
