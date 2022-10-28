@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react'
 import car1 from '../assets/car1.jpg'
 import carouselBg from '../assets/carouselBg.jpg'
 import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
-import {motion} from 'framer-motion'
-import { AnimatePresence } from 'framer-motion'
 
 const Carousel = () => {
     const slides = [
@@ -55,6 +53,11 @@ const Carousel = () => {
                         </div>
                     </div>
                 ))}
+                <div className='flex justify-center'>
+                    {slides.map((slide, index) => (
+                        <div className={index===currentSlide ? "h-1 bg-primary w-3 md:w-5 lg:w-10 mx-2 rounded-md" : "h-1 bg-white w-3 md:w-5 lg:w-10 mx-2 rounded-md"} key={index}></div>
+                    ))}
+                </div>
             </div>
         </div>
     )

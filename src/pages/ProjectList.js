@@ -1,14 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProjects } from '../slices/projectSlice';
 
 const ProjectList = () => {
     const dispatch = useDispatch();
-    const {data: projects, status} = useSelector(state => state.project);
+    const {data: projects} = useSelector(state => state.project);
 
     useEffect(() => {
-        dispatch(fetchProjects())
-    }, [dispatch]);
+        if(!projects){
+            dispatch(fetchProjects())
+        }
+    }, [dispatch, projects]);
     return (
         <div>
         {projects.map(project => (
