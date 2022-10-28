@@ -49,10 +49,10 @@ const Carousel = () => {
                         <div className='col-span-8 md:col-span-5 md:order-last p-2 md:p-3 md:px-20'>
                             <img src={slide.image} alt={slide.caption} className='w-full max-h-[350px] md:max-h-[600px] object-contain rounded-md'/>
                         </div>
-                        <motion.div className='col-span-8 md:col-span-3 text-white p-2 md:pt-48 md:pl-20' initial={{opacity: 0}} animate={{opacity: 1, transition:{duration: 0.5}}}>
+                        <div className='col-span-8 md:col-span-3 text-white p-2 md:pt-48 md:pl-20' initial={{opacity: 0}} animate={{opacity: 1, transition:{duration: 0.5}}}>
                             <p className='bg-gray-600/75 p-3 rounded-md'>{slide.caption}</p>
                             <div><button className='bg-primary rounded-lg px-5 py-3 mt-3 md:mt-8  hover:bg-primaryDark'>See More...</button></div>
-                        </motion.div>
+                        </div>
                     </div>
                 ))}
             </div>
