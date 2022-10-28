@@ -13,6 +13,10 @@ const Home = () => {
                     <h2 className='text-primary font-bold text-3xl'>Message From <span className='text-primaryDark'>Chairman</span></h2>
                     <p className='uppercase text-gray-600 text-sm font-medium'>Welcome message | What is Kadam? | What We Do</p>
                 </div>
+                <div className='grid grid-cols-4'>
+                    <div className='col-span-1'>photo</div>
+                    <div className='col-span-3'>text</div>
+                </div>
             </div>
 
             <div>Projects</div>

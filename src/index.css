@@ -32,3 +32,10 @@ code {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.messageFromChairmanBg {
+  background-image: url('./assets/blob.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
