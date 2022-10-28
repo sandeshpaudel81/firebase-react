@@ -41,22 +41,22 @@ const Home = () => {
             </div>
 
             {/* Projects */}
-            <div className='bg-slate-300'>
+            <div className='projectsBg bg-slate-900'>
                 <div className='container mx-auto px-5 py-20'>
                     <div className='border-l-8 border-primary px-5'>
-                        <h2 className='text-primary font-bold text-3xl'>Our <span className='text-primaryDark'>Projects</span></h2>
-                        <p className='uppercase text-gray-600 text-sm font-medium mt-2'>since 2001</p>
+                        <h2 className='text-primary font-bold text-3xl'>Our <span className='text-white'>Projects</span></h2>
+                        <p className='uppercase text-gray-400 text-sm font-medium mt-2'>since 2001</p>
                     </div>
                     <div className='grid grid-cols-2 gap-10 mt-5 md:mt-10'>
                         {projects.map((project) => (
                             <div className='col-span-2 md:col-span-1'>
                                 <Link to="#">
-                                <div className='grid grid-cols-5 bg-white shadow-xl hover:shadow-2xl hover:scale-[1.02] duration-300 rounded-lg overflow-hidden group'>
+                                <div className='grid grid-cols-5 bg-slate-300 shadow-xl hover:shadow-2xl hover:scale-[1.02] duration-300 rounded-lg overflow-hidden group'>
                                     <div className='col-span-5 md:col-span-2'>
                                         <img src={project.image} alt={project.content} className="w-full h-[250px] md:h-[200px] object-cover object-center"/>
                                     </div>
                                     <div className='col-span-5 md:col-span-3 relative p-5'>
-                                        <div className='w-5 h-5 rotate-45 bg-white absolute left-1/2 -top-2 md:top-1/2 md:-left-2'></div>
+                                        <div className='w-5 h-5 rotate-45 bg-slate-300 absolute left-1/2 -top-2 md:top-1/2 md:-left-2'></div>
                                         <h2 className='font-bold text-xl group-hover:text-primaryD'>{project.title}</h2>
                                         <p>{project.content}</p>
                                         <button className='bg-primary text-white px-5 py-2 rounded-lg mt-5 group-hover:bg-primaryDark'>See More...</button>

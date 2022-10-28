@@ -40,6 +40,13 @@ code {
   background-size: cover;
 }
 
+.projectsBg {
+  background-image: url('./assets/projectsBg.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .chairmanBg {
   background-image: url('./assets/blob.svg');
   background-position: center;
