@@ -86,8 +86,16 @@ const Home = () => {
                                     <p className='text-gray-500 h-24 opacity-0 overflow-hidden group-hover:opacity-100'>{project.content}</p>
                                     <small className='flex items-center mt-2 font-medium text-gray-600 opacity-0 group-hover:opacity-100'><FaRegHourglass className='mr-2'/>5 min read</small>
                                 </div>
+                                <div className='absolute bottom-0 right-0 bg-primary z-40 text-white'>
+                                    <Link to="#"><div className='p-2'><FaChevronRight className='text-xl'/></div></Link>
+                                </div>
                             </div>
                         ))}
+                    </div>
+                    <div className='flex justify-end mt-5'>
+                        <Link to="/projects" className='uppercase text-gray-600 hover:text-black'>
+                            <p className='flex items-center font-medium'>See More <FaChevronRight className='ml-3'/></p>
+                        </Link>
                     </div>
                 </div>
             </div>
