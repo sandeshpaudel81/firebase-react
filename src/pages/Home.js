@@ -8,10 +8,10 @@ import { FaChevronRight } from 'react-icons/fa'
 
 const Home = () => {
     const projects = [
-        {"image": projectImage, "title": "Title 10", "content": "content2"},
-        {"image": projectImage, "title": "Title 20", "content": "content1"},
-        {"image": projectImage, "title": "Title 30", "content": "content3"},
-        {"image": projectImage, "title": "Title 40", "content": "content4"}
+        {"image": projectImage, "title": "Title 10", "content": "Do non irure nisi anim et anim. Voluptate elit eu sint amet anim pariatur incididunt nulla ex tempor adipisicing. Aliquip mollit ipsum id ad anim id duis quis commodo proident. Commodo laboris elit pariatur dolore irure. Sunt ut adipisicing nulla dolor. Excepteur cillum voluptate voluptate qui excepteur nisi incididunt proident adipisicing."},
+        {"image": projectImage, "title": "Title 20", "content": "Amet Lorem laborum duis ipsum consequat exercitation eu occaecat nulla. Magna nostrud non do ea amet. Excepteur aliquip reprehenderit consectetur commodo amet laboris laborum adipisicing culpa reprehenderit. Ullamco adipisicing Lorem et reprehenderit cupidatat. Nisi reprehenderit mollit velit enim magna do ad tempor nisi anim labore eu excepteur ad."},
+        {"image": projectImage, "title": "Title 30", "content": "Esse in amet et esse adipisicing velit duis dolor ipsum in nostrud consectetur. Amet dolore aute sit in. Mollit et ea adipisicing deserunt nostrud nisi nulla."},
+        {"image": projectImage, "title": "Title 40", "content": "Ullamco aliqua incididunt occaecat ex labore aliqua ullamco culpa est occaecat est exercitation exercitation. Pariatur deserunt ullamco adipisicing sint id aliquip. Irure nostrud velit aliqua incididunt veniam. Mollit laborum in laborum consectetur in eu velit."}
     ]
     return (
         <div>
@@ -63,7 +63,26 @@ const Home = () => {
             </div>
 
             {/* News */}
-            <div>News</div>
+            <div className='bg-blue-200'>
+                <div className='container mx-auto px-5 py-10 md:py-20'>
+                    <div className='border-l-8 border-primary px-5'>
+                        <h2 className='text-primary font-bold text-3xl'>News / <span className='text-primaryDark'>Events</span></h2>
+                        <p className='uppercase text-gray-600 text-sm font-medium mt-2'>Programs | Meetups | Affairs</p>
+                    </div>
+                    <div className='grid grid-cols-4 gap-10 mt-5 md:mt-10'>
+                        {projects.map((project) => (
+                            <div className='col-span-4 md:col-span-1'>
+                                <img src={project.image} alt={project.title} className='w-full h-[250px] md:h-[200px] object-cover object-center'/>
+                                <div className='bg-white p-5'>
+                                    <h2 className='text-xl font-bold'>{project.title}</h2>
+                                    <p className='text-gray-500 h-24 overflow-hidden'>{project.content}</p>
+                                    <small>30 Oct, 2022</small>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
 
             {/* Awards & Achievements */}
             <div>Awards & Achievements</div>
