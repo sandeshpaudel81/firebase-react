@@ -72,6 +72,12 @@ const Home = () => {
                     <div className='grid grid-cols-4 gap-10 mt-5 md:mt-10'>
                         {projects.map((project) => (
                             <div className='col-span-4 md:col-span-1 shadow-lg h-80 relative group overflow-hidden'>
+                                <div className='absolute bg-primary rounded-full right-0 text-white'>
+                                    <div className='flex'>
+                                        <h3 className='text-3xl'>30</h3>
+                                        <p className='flex flex-col'>Oct <span>2022</span></p>
+                                    </div>
+                                </div>
                                 <div className='overflow-hidden'>
                                     <img src={project.image} alt={project.title} className='w-full h-[250px] object-cover object-center group-hover:scale-[1.1] group-hover:blur-[1px] duration-300'/>
                                 </div>
