@@ -73,7 +73,7 @@ const Home = () => {
                         {projects.map((project) => (
                             <div className='col-span-4 md:col-span-1 shadow-lg h-80 relative group overflow-hidden'>
                                 <div className='overflow-hidden'>
-                                    <img src={project.image} alt={project.title} className='w-full h-[250px] object-cover object-center group-hover:scale-[1.1] duration-300'/>
+                                    <img src={project.image} alt={project.title} className='w-full h-[250px] object-cover object-center group-hover:scale-[1.1] group-hover:blur-[1px] duration-300'/>
                                 </div>
                                 <div className='bg-white absolute p-5 bottom-[-120px] group-hover:bottom-0 duration-500'>
                                     <h2 className='text-xl font-bold'>{project.title}</h2>
