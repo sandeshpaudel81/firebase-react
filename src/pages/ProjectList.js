@@ -4,11 +4,13 @@ import { fetchProjects } from '../slices/projectSlice';
 
 const ProjectList = () => {
     const dispatch = useDispatch();
-    const {data: projects} = useSelector(state => state.project);
+    const {data: projects, success: projectSuccess} = useSelector(state => state.project);
 
     useEffect(() => {
-        dispatch(fetchProjects())
-    }, [dispatch]);
+        if (!projectSuccess){
+            dispatch(fetchProjects())
+        }
+    }, [dispatch, projectSuccess]);
     return (
         <div>
         {projects.map(project => (
