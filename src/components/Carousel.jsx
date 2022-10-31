@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import car1 from '../assets/car1.jpg'
 import carouselBg from '../assets/carouselBg.jpg'
-import logo from '../assets/logo.png'
 import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
 
 const Carousel = () => {
     const slides = [
-        {"image": logo, "caption": "Sandesh  Paudel"},
+        {"image": car1, "caption": "Sandesh  Paudel"},
         {"image": carouselBg, "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Etiam elementum lorem ac felis auctor aliquet et commodo augue. Maecenas ut urna tempus, sodales odio non, pulvinar sem. Donec vitae tellus vel dolor mollis tincidunt sed id eros. Aenean sit amet tristique augue, at ornare dolor."}
     ]
     let autoScroll = true;
