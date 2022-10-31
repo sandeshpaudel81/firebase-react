@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCarousel } from '../slices/carouselSlice'
 import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const Carousel = () => {
     const dispatch = useDispatch();
@@ -50,7 +51,7 @@ const Carousel = () => {
                         </div>
                         <div className='col-span-8 md:col-span-3 text-white p-2 md:pt-48 md:pl-20' initial={{opacity: 0}} animate={{opacity: 1, transition:{duration: 0.5}}}>
                             <p className='bg-gray-600/75 p-3 rounded-md'>{slide.caption}</p>
-                            <div><button className='bg-primary rounded-lg px-5 py-3 mt-3 md:mt-8 hover:bg-primaryDark'>See More...</button></div>
+                            <div><a href={slide.linkTo} target="_blank" rel='noreferrer'><button className='bg-primary rounded-lg px-5 py-3 mt-3 md:mt-8 hover:bg-primaryDark'>See More...</button></a></div>
                         </div>
                     </div>
                 ))}
