@@ -48,11 +48,11 @@ const Carousel = () => {
                 {slides.map((slide, index) => (
                     <div className={index === currentSlide ? "grid grid-cols-8" : "hidden"} key={index}>
                         <div className='col-span-8 md:col-span-5 md:order-last p-2 md:p-3 md:px-20'>
-                            <img src={slide.image} alt={slide.caption} className='w-full h-[350px] md:h-[600px] object-contain rounded-md bg-transparent'/>
+                            <img src={slide.imageUrl} alt={slide.caption} className='w-full h-[350px] md:h-[600px] object-contain rounded-md bg-transparent'/>
                         </div>
                         <div className='col-span-8 md:col-span-3 text-white p-2 md:pt-48 md:pl-20' initial={{opacity: 0}} animate={{opacity: 1, transition:{duration: 0.5}}}>
                             <p className='bg-gray-600/75 p-3 rounded-md'>{slide.caption}</p>
-                            <div><button className='bg-primary rounded-lg px-5 py-3 mt-3 md:mt-8  hover:bg-primaryDark'>See More...</button></div>
+                            <div><button className='bg-primary rounded-lg px-5 py-3 mt-3 md:mt-8 hover:bg-primaryDark'>See More...</button></div>
                         </div>
                     </div>
                 ))}

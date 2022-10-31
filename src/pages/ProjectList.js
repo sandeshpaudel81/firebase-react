@@ -7,10 +7,8 @@ const ProjectList = () => {
     const {data: projects} = useSelector(state => state.project);
 
     useEffect(() => {
-        if(!projects){
-            dispatch(fetchProjects())
-        }
-    }, [dispatch, projects]);
+        dispatch(fetchProjects())
+    }, [dispatch]);
     return (
         <div>
         {projects.map(project => (

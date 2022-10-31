@@ -7,6 +7,7 @@ const projectSlice = createSlice({
     initialState: {
         data: [],
         status: 'idle',
+        success: false,
     },
     reducers: {
         setProjects(state, action){
@@ -14,11 +15,14 @@ const projectSlice = createSlice({
         },
         setStatus(state, action){
             state.status = action.payload
+        },
+        setSuccess(state, action){
+            state.success = action.payload
         }
     }
 })
 
-export const { setProjects, setStatus } = projectSlice.actions;
+export const { setProjects, setStatus, setSuccess } = projectSlice.actions;
 
 export default projectSlice.reducer;
 
@@ -36,7 +40,8 @@ export function fetchProjects(){
                 projectList.push({ ...doc.data(), id: doc.id})
             });
             dispatch(setProjects(projectList))
-            dispatch(setStatus('idle')) 
+            dispatch(setStatus('idle'))
+            dispatch(setSuccess(true)) 
         } catch(err) {
             dispatch(setStatus('error'))
         }
