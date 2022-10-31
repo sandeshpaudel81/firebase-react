@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCarousel } from '../slices/carouselSlice'
 import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 
 const Carousel = () => {
     const dispatch = useDispatch();
