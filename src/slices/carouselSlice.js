@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {getDocs, query, collection} from "firebase/firestore"
 import {db} from "../firebase-config"
-import { setStatus } from "./projectSlice";
 
 const carouselSlice = createSlice({
     name: 'carousel',
