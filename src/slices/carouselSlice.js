@@ -7,6 +7,7 @@ const carouselSlice = createSlice({
     initialState: {
         data: [],
         loading: false,
+        success: false,
         error: "",
     },
     reducers: {
@@ -16,13 +17,16 @@ const carouselSlice = createSlice({
         setLoading(state, action){
             state.loading = action.payload
         },
+        setSuccess(state, action){
+            state.success = action.payload
+        },
         setError(state, action){
             state.error = action.payload
         }
     }
 })
 
-export const {setCarousel, setLoading, setError} = carouselSlice.actions;
+export const {setCarousel, setLoading, setError, setSuccess} = carouselSlice.actions;
 
 export default carouselSlice.reducer;
 
@@ -41,6 +45,7 @@ export function fetchCarousel(){
             });
             dispatch(setCarousel(carousel))
             dispatch(setLoading(false))
+            dispatch(setSuccess(true))
         } catch(err) {
             dispatch(setError('error'))
         }

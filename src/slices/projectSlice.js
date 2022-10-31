@@ -6,23 +6,27 @@ const projectSlice = createSlice({
     name: 'project',
     initialState: {
         data: [],
-        status: 'idle',
+        loading: false,
         success: false,
+        error: "",
     },
     reducers: {
         setProjects(state, action){
             state.data = action.payload
         },
-        setStatus(state, action){
-            state.status = action.payload
+        setLoading(state, action){
+            state.loading = action.payload
         },
         setSuccess(state, action){
             state.success = action.payload
+        },
+        setError(state, action){
+            state.error = action.payload
         }
     }
 })
 
-export const { setProjects, setStatus, setSuccess } = projectSlice.actions;
+export const { setProjects, setLoading, setSuccess, setError } = projectSlice.actions;
 
 export default projectSlice.reducer;
 
@@ -30,7 +34,7 @@ export default projectSlice.reducer;
 // thunks
 export function fetchProjects(){
     return async function fetchProjectsThunk(dispatch, getState){
-        dispatch(setStatus('loading'))
+        dispatch(setLoading(true))
         try {
             let projectList = []
             const projects = await getDocs(
@@ -40,10 +44,10 @@ export function fetchProjects(){
                 projectList.push({ ...doc.data(), id: doc.id})
             });
             dispatch(setProjects(projectList))
-            dispatch(setStatus('idle'))
+            dispatch(setLoading(false))
             dispatch(setSuccess(true)) 
         } catch(err) {
-            dispatch(setStatus('error'))
+            dispatch(setError('error'))
         }
     }
 }
