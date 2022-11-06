@@ -11,21 +11,31 @@ const AddEditCarousel = () => {
                 <p className='uppercase text-gray-600 text-sm font-medium mt-2'>Appear on homescreen</p>
             </div>
             <div className='mt-5 md:mt-10'>
-                <form className='w-1/2'>
+                <form className='w-1/2' encType='multipart/form-data'>
                     <div className='flex flex-col mb-5'>
                         <label className='uppercase font-semibold'>Caption of the slide</label>
-                        <input type='text' className='bg-gray-300 p-2 focus:border-primary focus:bg-gray-400 rounded-lg' name='carousel_caption'></input>
+                        <input type='text' className='bg-gray-300 p-2 focus:border-primary focus:bg-gray-400 rounded-lg' name='carousel_caption' required></input>
                     </div>
                     <div className='flex mb-5'>
                         <label className='uppercase font-semibold mr-5'>Slide Status</label>
-                        <input type='checkbox' className='h-5 w-5 mr-5' name='carousel_isActive' checked></input>
+                        <input type='checkbox' className='h-5 w-5 mr-5' name='carousel_is_active' checked></input>
                         <p>Active</p>
                     </div>
-                    
+                    <div className='flex flex-col mb-5'>
+                        <label className='uppercase font-semibold'>Link to follow</label>
+                        <input type='url' className='bg-gray-300 p-2 focus:border-primary focus:bg-gray-400 rounded-lg' name='carousel_linkTo'></input>
+                    </div>
+                    <div className='flex flex-col mb-5'>
+                        <label className='uppercase font-semibold'>Image</label>
+                        <input type='file'></input>
+                    </div>
+                    <div>
+                        <input type='submit' className='bg-primary px-8 py-3 text-white rounded-lg hover:bg-primaryDark cursor-pointer' name='carousel_image'></input>
+                    </div>
                 </form>
             </div>
             <div className='flex justify-start mt-5'>
-                <Link to="#" className='uppercase text-gray-600 hover:text-black'>
+                <Link to="#" className='uppercase text-primary hover:text-primaryDark'>
                     <p className='flex items-center font-medium'><FaChevronLeft className='mr-3'/>All Slides</p>
                 </Link>
             </div>
