@@ -7,6 +7,7 @@ import ProjectList from './pages/ProjectList';
 import AlbumList from './pages/AlbumList';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import AddEditCarousel from './pages/admin/AddEditCarousel';
 
 function App() {
   // const usersCollectionRef = collection(db, "admins")
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home/>} exact/>
           <Route path="/projects" element={<ProjectList/>} />
           <Route path="/albums" element={<AlbumList/>} />
+          <Route path="/admin/carousels/add" element={<AddEditCarousel/>} />
         </Routes>
       </main>
       <Footer/>
