@@ -16,7 +16,14 @@ import { FaChevronRight } from 'react-icons/fa'
 
 const Home = () => {
     const dispatch = useDispatch();
-    
+    const {data: projects, success: projectSuccess} = useSelector(state => state.project);
+
+    useEffect(() => {
+        if (!projectSuccess){
+            dispatch(fetchProjects())
+        }
+    }, [dispatch, projectSuccess]);
+
     const news = [
         {"image": projectImage, "title": "Title 10", "content": "Do non irure nisi anim et anim. Voluptate elit eu sint amet anim pariatur incididunt nulla ex tempor adipisicing. Aliquip mollit ipsum id ad anim id duis quis commodo proident. Commodo laboris elit pariatur dolore irure. Sunt ut adipisicing nulla dolor. Excepteur cillum voluptate voluptate qui excepteur nisi incididunt proident adipisicing."},
         {"image": projectImage, "title": "Title 20", "content": "Amet Lorem laborum duis ipsum consequat exercitation eu occaecat nulla. Magna nostrud non do ea amet. Excepteur aliquip reprehenderit consectetur commodo amet laboris laborum adipisicing culpa reprehenderit. Ullamco adipisicing Lorem et reprehenderit cupidatat. Nisi reprehenderit mollit velit enim magna do ad tempor nisi anim labore eu excepteur ad."},
@@ -61,7 +68,7 @@ const Home = () => {
                     </div>
                     <div className='grid grid-cols-2 gap-10 mt-5 md:mt-10'>
                         {projects.map((project) => (
-                            <Project content={project.content} image={project.image} title={project.title}/>
+                            <Project project={project}/>
                         ))}
                     </div>
                     <div className='flex justify-end mt-5'>
