@@ -12,16 +12,16 @@ const getCarouselSlice = createSlice({
         error: "",
     },
     reducers: {
-        setCarousel(state, action){
+        getCarouselData(state, action){
             state.data = action.payload
         },
-        setLoading(state, action){
+        getCarouselLoading(state, action){
             state.loading = action.payload
         },
-        setSuccess(state, action){
+        getCarouselSuccess(state, action){
             state.success = action.payload
         },
-        setError(state, action){
+        getCarouselError(state, action){
             state.error = action.payload
         }
     }
@@ -30,20 +30,19 @@ const getCarouselSlice = createSlice({
 const addCarouselSlice = createSlice({
     name: 'addCarousel',
     initialState: {
-        data: [],
         loading: false,
         success: false,
         error: "",
     },
     reducers: {
-        setLoading(state, action){
+        addCarouselLoading(state, action){
             state.loading = action.payload
         }
     }
 })
 
-export const {setCarousel, setLoading, setError, setSuccess} = getCarouselSlice.actions;
-export const {setLoading: setAddCarouselLoading} = addCarouselSlice.actions;
+export const {getCarouselData, getCarouselLoading, getCarouselSuccess, getCarouselError} = getCarouselSlice.actions;
+export const {addCarouselLoading, } = addCarouselSlice.actions;
 
 export const carouselReducer = combineReducers({
     getCarousel: getCarouselSlice.reducer,
@@ -54,7 +53,7 @@ export const carouselReducer = combineReducers({
 
 export function fetchCarousel(){
     return async function fetchCarouselThunk(dispatch, getState){
-        dispatch(setLoading(true))
+        dispatch(getCarouselLoading(true))
         try {
             let carousel = []
             const slides = await getDocs(
@@ -63,11 +62,11 @@ export function fetchCarousel(){
             slides.docs.forEach((doc) => {
                 carousel.push({ ...doc.data(), id: doc.id})
             });
-            dispatch(setCarousel(carousel))
-            dispatch(setLoading(false))
-            dispatch(setSuccess(true))
-        } catch(err) {
-            dispatch(setError('error'))
+            dispatch(getCarouselData(carousel))
+            dispatch(getCarouselLoading(false))
+            dispatch(getCarouselSuccess(true))
+        } catch(error) {
+            dispatch(getCarouselError(error.message))
         }
     }
 }
