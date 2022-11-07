@@ -27,6 +27,34 @@ const getCarouselSlice = createSlice({
     }
 })
 
+const uploadCarouselImageSlice = createSlice({
+    name: 'uploadCarouselImage',
+    initialState: {
+        carouselImage: {},
+        loading: false,
+        success: false,
+        error: "",
+    },
+    reducers: {
+        uploadCarouselImageData(state, action){
+            state.carouselImage = action.payload
+        },
+        uploadCarouselImageLoading(state, action){
+            state.loading = action.payload
+        },
+        uploadCarouselImageSuccess(state, action){
+            state.success = action.payload
+        },
+        uploadCarouselImageError(state, action){
+            state.error = action.payload
+        },
+        uploadCarouselImageReset(state){
+            state.success = false
+            state.error = ""
+        }
+    }
+})
+
 const addCarouselSlice = createSlice({
     name: 'addCarousel',
     initialState: {
@@ -37,17 +65,30 @@ const addCarouselSlice = createSlice({
     reducers: {
         addCarouselLoading(state, action){
             state.loading = action.payload
+        },
+        addCarouselSuccess(state, action){
+            state.success = action.payload
+        },
+        addCarouselError(state, action){
+            state.error = action.payload
+        },
+        addCarouselReset(state){
+            state.success = false
+            state.error = ""
         }
     }
 })
 
 export const {getCarouselData, getCarouselLoading, getCarouselSuccess, getCarouselError} = getCarouselSlice.actions;
-export const {addCarouselLoading, } = addCarouselSlice.actions;
+export const {addCarouselLoading, addCarouselSuccess, addCarouselError, addCarouselReset} = addCarouselSlice.actions;
+export const {uploadCarouselImageData, uploadCarouselImageLoading, uploadCarouselImageSuccess, uploadCarouselImageError, uploadCarouselImageReset} = uploadCarouselImageSlice.actions;
 
 export const carouselReducer = combineReducers({
     getCarousel: getCarouselSlice.reducer,
+    uploadCarouselImage: uploadCarouselImageSlice.reducer,
     addCarousel: addCarouselSlice.reducer,
 });
+
 
 // thunks
 
@@ -67,6 +108,20 @@ export function fetchCarousel(){
             dispatch(getCarouselSuccess(true))
         } catch(error) {
             dispatch(getCarouselError(error.message))
+        }
+    }
+}
+
+export function uploadCarouselImage(){
+    return async function uploadCarouselImageThunk(dispatch){
+        dispatch(uploadCarouselImageLoading(true))
+        try {
+            // upload image on firebase
+            dispatch(uploadCarouselImageData("url"))
+            dispatch(uploadCarouselImageLoading(false))
+            dispatch(uploadCarouselImageSuccess(true))
+        } catch(error) {
+            dispatch(uploadCarouselImageError(error.message))
         }
     }
 }

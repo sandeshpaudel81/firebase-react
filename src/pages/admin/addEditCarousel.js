@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import { FaChevronLeft } from 'react-icons/fa'
+import { uploadCarouselImage } from '../../slices/carouselSlice'
 
 const AddEditCarousel = () => {
     const [caption, setCaption] =  useState("Hello")
@@ -9,7 +10,7 @@ const AddEditCarousel = () => {
     const [imageUrl, setImageUrl] = useState("Hello")
 
     const uploadImageHandler = () => {
-        console.log("image handler")
+        uploadCarouselImage();
     }
 
     const addCarouselHandler = () => {
