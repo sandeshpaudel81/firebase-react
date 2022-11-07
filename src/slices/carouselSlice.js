@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {getDocs, query, collection} from "firebase/firestore"
 import {db} from "../firebase-config"
+import { combineReducers } from "@reduxjs/toolkit";
 
-const carouselSlice = createSlice({
-    name: 'carousel',
+const getCarouselSlice = createSlice({
+    name: 'getCarousel',
     initialState: {
         data: [],
         loading: false,
@@ -26,9 +27,28 @@ const carouselSlice = createSlice({
     }
 })
 
-export const {setCarousel, setLoading, setError, setSuccess} = carouselSlice.actions;
+const addCarouselSlice = createSlice({
+    name: 'addCarousel',
+    initialState: {
+        data: [],
+        loading: false,
+        success: false,
+        error: "",
+    },
+    reducers: {
+        setLoading(state, action){
+            state.loading = action.payload
+        }
+    }
+})
 
-export default carouselSlice.reducer;
+export const {setCarousel, setLoading, setError, setSuccess} = getCarouselSlice.actions;
+export const {setLoading: setAddCarouselLoading} = addCarouselSlice.actions;
+
+export const carouselReducer = combineReducers({
+    getCarousel: getCarouselSlice.reducer,
+    addCarousel: addCarouselSlice.reducer,
+});
 
 // thunks
 
