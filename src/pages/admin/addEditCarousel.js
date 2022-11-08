@@ -1,22 +1,44 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FaChevronLeft } from 'react-icons/fa'
+import UploadProgress from '../../components/UploadProgress'
 import { uploadCarouselImage } from '../../slices/carouselSlice'
 
+
 const AddEditCarousel = () => {
+    const [image, setImage] = useState("")
     const [caption, setCaption] =  useState("Hello")
     const [isActive, setIsActive] =  useState(true)
     const [linkTo, setLinkTo] =  useState("Hello")
     const [imageUrl, setImageUrl] = useState("Hello")
+    const [progress, setProgress] = useState(0)
+
+    const dispatch = useDispatch()
+
+    const {carouselImage:uploadedImageUrl, progress:uploadProgress, success:uploadSuccess} = useSelector(state => state.carousel.uploadCarouselImage);
 
     const uploadImageHandler = () => {
-        uploadCarouselImage();
+        if (image!==null){
+            dispatch(uploadCarouselImage(image));
+        }
     }
 
     const addCarouselHandler = () => {
         console.log(caption)
         console.log(isActive)
     }
+
+    useEffect(() => {
+        setProgress(uploadProgress)
+    }, [uploadProgress])
+
+    useEffect(() => {
+        if(uploadSuccess){
+            setImageUrl(uploadedImageUrl)
+        }
+    }, [uploadSuccess, uploadedImageUrl])
+
     return (
         <div>
             <div className='container mx-auto px-5 py-10 md:py-20'>
@@ -28,7 +50,10 @@ const AddEditCarousel = () => {
                     <div className='w-1/2'>
                         <div className='flex flex-col mb-5'>
                             <p className='uppercase font-semibold'>Image</p>
-                            <input type='file'></input>
+                            {(progress > 0) && (
+                                <UploadProgress progress={progress}/>
+                            )}
+                            <input type='file' accept='image/*' onChange={(e) => setImage(e.target.files[0])}></input>
                             <button className='uppercase bg-primaryD w-1/5 text-white mt-3 rounded-md hover:bg-primaryDark' onClick={uploadImageHandler}>Upload</button>
                         </div>
                     </div>
@@ -46,9 +71,14 @@ const AddEditCarousel = () => {
                             <label className='uppercase font-semibold'>Link to follow</label>
                             <input type='text' className='bg-gray-300 p-2 focus:border-primary focus:bg-gray-400 rounded-lg' name='carousel_linkTo' value={linkTo} onChange={(e) => setLinkTo(e.target.value)}></input>
                         </div>
+                        <div>
+                            {uploadSuccess ? (
+                                <img src={imageUrl} alt='slide' className='w-[200px] h-[150px] object-cover object-center'/>
+                            ) : <></> }
+                        </div>
                         <div className='flex flex-col mb-5'>
                             <label className='uppercase font-semibold'>Image URL</label>
-                            <input type='text' className='bg-slate-400 text-white p-2 focus:border-primary focus:bg-gray-400 rounded-lg' name='carousel_imageUrl' value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} disabled></input>
+                            <input type='text' className='bg-slate-400 text-white p-2 focus:border-primary focus:bg-gray-400 rounded-lg' name='carousel_imageUrl' value={imageUrl} disabled></input>
                         </div>
                         <div>
                             <input type='submit' className='bg-primary px-8 py-3 text-white rounded-lg hover:bg-primaryDark cursor-pointer' onClick={addCarouselHandler}></input>

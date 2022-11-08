@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {getDocs, query, collection} from "firebase/firestore"
-import {db} from "../firebase-config"
+import {db, storage} from "../firebase-config"
 import { combineReducers } from "@reduxjs/toolkit";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const getCarouselSlice = createSlice({
     name: 'getCarousel',
@@ -31,6 +32,7 @@ const uploadCarouselImageSlice = createSlice({
     name: 'uploadCarouselImage',
     initialState: {
         carouselImage: {},
+        progress: 0,
         loading: false,
         success: false,
         error: "",
@@ -38,6 +40,9 @@ const uploadCarouselImageSlice = createSlice({
     reducers: {
         uploadCarouselImageData(state, action){
             state.carouselImage = action.payload
+        },
+        uploadCarouselImageProgress(state, action){
+            state.progress = action.payload
         },
         uploadCarouselImageLoading(state, action){
             state.loading = action.payload
@@ -81,7 +86,7 @@ const addCarouselSlice = createSlice({
 
 export const {getCarouselData, getCarouselLoading, getCarouselSuccess, getCarouselError} = getCarouselSlice.actions;
 export const {addCarouselLoading, addCarouselSuccess, addCarouselError, addCarouselReset} = addCarouselSlice.actions;
-export const {uploadCarouselImageData, uploadCarouselImageLoading, uploadCarouselImageSuccess, uploadCarouselImageError, uploadCarouselImageReset} = uploadCarouselImageSlice.actions;
+export const {uploadCarouselImageData, uploadCarouselImageProgress, uploadCarouselImageLoading, uploadCarouselImageSuccess, uploadCarouselImageError, uploadCarouselImageReset} = uploadCarouselImageSlice.actions;
 
 export const carouselReducer = combineReducers({
     getCarousel: getCarouselSlice.reducer,
@@ -112,16 +117,35 @@ export function fetchCarousel(){
     }
 }
 
-export function uploadCarouselImage(){
-    return async function uploadCarouselImageThunk(dispatch){
+export function uploadCarouselImage(image){
+    return function uploadCarouselImageThunk(dispatch){
         dispatch(uploadCarouselImageLoading(true))
         try {
             // upload image on firebase
+            const storageRef = ref(storage, `/carousel/${image.name}`)
+            const uploadTask = uploadBytesResumable(storageRef, image)
+            uploadTask.on(
+                "state_changed",
+                (snapshot) => {
+                    const percent = Math.round(
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                    )
+                    dispatch(uploadCarouselImageProgress(percent))
+                },
+                (err) => {
+                    dispatch(uploadCarouselImageError(err))
+                },
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                        dispatch(uploadCarouselImageData(url))
+                    })
+                }
+            )
             dispatch(uploadCarouselImageData("url"))
             dispatch(uploadCarouselImageLoading(false))
             dispatch(uploadCarouselImageSuccess(true))
-        } catch(error) {
-            dispatch(uploadCarouselImageError(error.message))
+        } catch(err) {
+            dispatch(uploadCarouselImageError(err))
         }
     }
 }
