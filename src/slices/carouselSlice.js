@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {getDocs, query, collection} from "firebase/firestore"
+import {getDocs, query, collection, addDoc, serverTimestamp} from "firebase/firestore"
 import {db, storage} from "../firebase-config"
 import { combineReducers } from "@reduxjs/toolkit";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
@@ -146,6 +146,25 @@ export function uploadCarouselImage(image){
             dispatch(uploadCarouselImageSuccess(true))
         } catch(err) {
             dispatch(uploadCarouselImageError(err.message))
+        }
+    }
+}
+
+export function addNewCarousel(data){
+    return async function addNewCarouselThunk(dispatch){
+        dispatch(addCarouselLoading(true))
+        try {
+            await addDoc(collection(db, "carousel"), {
+                caption: data.caption,
+                imageUrl: data.imageUrl,
+                datetime: serverTimestamp(),
+                is_active: data.is_active,
+                linkTo: data.linkTo
+            })
+            dispatch(addCarouselLoading(false))
+            dispatch(addCarouselSuccess(true))
+        } catch(err) {
+            dispatch(addCarouselError(err.message))
         }
     }
 }

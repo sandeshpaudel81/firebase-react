@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FaChevronLeft } from 'react-icons/fa'
 import UploadProgress from '../../components/UploadProgress'
-import { uploadCarouselImage } from '../../slices/carouselSlice'
+import { addCarouselReset, addNewCarousel, uploadCarouselImage, uploadCarouselImageReset } from '../../slices/carouselSlice'
 
 
 const AddEditCarousel = () => {
@@ -17,6 +17,7 @@ const AddEditCarousel = () => {
     const dispatch = useDispatch()
 
     const {carouselImage:uploadedImageUrl, progress:uploadProgress, success:uploadSuccess} = useSelector(state => state.carousel.uploadCarouselImage);
+    const {success: addCarouselSuccess} = useSelector(state => state.carousel.addCarousel)
 
     const uploadImageHandler = () => {
         if (image!==null){
@@ -25,9 +26,20 @@ const AddEditCarousel = () => {
     }
 
     const addCarouselHandler = () => {
-        console.log(caption)
-        console.log(isActive)
+        dispatch(addNewCarousel({
+            caption: caption,
+            imageUrl: imageUrl,
+            is_active: isActive,
+            linkTo: linkTo
+        }))
     }
+
+    useEffect(() => {
+        if (addCarouselSuccess){
+            dispatch(uploadCarouselImageReset())
+            dispatch(addCarouselReset())
+        }
+    }, [dispatch, addCarouselSuccess])
 
     useEffect(() => {
         setProgress(uploadProgress)
