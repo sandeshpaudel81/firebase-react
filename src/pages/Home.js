@@ -68,7 +68,7 @@ const Home = () => {
                     </div>
                     <div className='grid grid-cols-2 gap-10 mt-5 md:mt-10'>
                         {projects.map((project) => (
-                            <Project project={project}/>
+                            <Project project={project} key={project.id}/>
                         ))}
                     </div>
                     <div className='flex justify-end mt-5'>

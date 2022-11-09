@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FaChevronLeft } from 'react-icons/fa'
 import UploadProgress from '../../components/UploadProgress'
-import { addCarouselReset, addNewCarousel, uploadCarouselImage, uploadCarouselImageReset } from '../../slices/carouselSlice'
+import { addCarouselReset, addNewCarousel, fetchCarousel, uploadCarouselImage, uploadCarouselImageReset } from '../../slices/carouselSlice'
 
 
-const AddEditCarousel = () => {
+const AddEditCarousel = ({history}) => {
     const [image, setImage] = useState("")
     const [caption, setCaption] =  useState("Caption of the slide")
     const [isActive, setIsActive] =  useState(true)
@@ -38,8 +38,10 @@ const AddEditCarousel = () => {
         if (addCarouselSuccess){
             dispatch(uploadCarouselImageReset())
             dispatch(addCarouselReset())
+            dispatch(fetchCarousel())
+            history.push('/admin/carousels/')
         }
-    }, [dispatch, addCarouselSuccess])
+    }, [dispatch, addCarouselSuccess, history])
 
     useEffect(() => {
         setProgress(uploadProgress)
@@ -69,7 +71,7 @@ const AddEditCarousel = () => {
                             <button className='uppercase bg-primaryD w-1/5 text-white mt-3 rounded-md hover:bg-primaryDark' onClick={uploadImageHandler}>Upload</button>
                         </div>
                     </div>
-                    <form className='w-1/2'>
+                    <div className='w-1/2'>
                         <div className='flex flex-col mb-5'>
                             <label className='uppercase font-semibold'>Caption of the slide</label>
                             <input type='text' className='bg-gray-300 p-2 focus:border-primary focus:bg-gray-400 rounded-lg' name='carousel_caption' value={caption} onChange={(e) => setCaption(e.target.value)}></input>
@@ -93,9 +95,9 @@ const AddEditCarousel = () => {
                             <input type='text' className='bg-slate-400 text-white p-2 focus:border-primary focus:bg-gray-400 rounded-lg' name='carousel_imageUrl' value={imageUrl} disabled></input>
                         </div>
                         <div>
-                            <input type='submit' className='bg-primary px-8 py-3 text-white rounded-lg hover:bg-primaryDark cursor-pointer' onClick={addCarouselHandler}></input>
+                            <button type='submit' className='bg-primary px-8 py-3 text-white rounded-lg hover:bg-primaryDark cursor-pointer' onClick={addCarouselHandler}>Submit</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div className='flex justify-start mt-5'>
                     <Link to="#" className='uppercase text-primary hover:text-primaryDark'>

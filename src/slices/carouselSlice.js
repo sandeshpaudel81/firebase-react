@@ -54,6 +54,7 @@ const uploadCarouselImageSlice = createSlice({
             state.error = action.payload
         },
         uploadCarouselImageReset(state){
+            state.carouselImage = {}
             state.success = false
             state.error = ""
         }
