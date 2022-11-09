@@ -98,7 +98,7 @@ export const carouselReducer = combineReducers({
 // thunks
 
 export function fetchCarousel(){
-    return async function fetchCarouselThunk(dispatch, getState){
+    return async function fetchCarouselThunk(dispatch){
         dispatch(getCarouselLoading(true))
         try {
             let carousel = []
@@ -111,8 +111,8 @@ export function fetchCarousel(){
             dispatch(getCarouselData(carousel))
             dispatch(getCarouselLoading(false))
             dispatch(getCarouselSuccess(true))
-        } catch(error) {
-            dispatch(getCarouselError(error.message))
+        } catch(err) {
+            dispatch(getCarouselError(err.message))
         }
     }
 }
@@ -133,7 +133,7 @@ export function uploadCarouselImage(image){
                     dispatch(uploadCarouselImageProgress(percent))
                 },
                 (err) => {
-                    dispatch(uploadCarouselImageError(err))
+                    dispatch(uploadCarouselImageError(err.message))
                 },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((url) => {
@@ -145,7 +145,7 @@ export function uploadCarouselImage(image){
             dispatch(uploadCarouselImageLoading(false))
             dispatch(uploadCarouselImageSuccess(true))
         } catch(err) {
-            dispatch(uploadCarouselImageError(err))
+            dispatch(uploadCarouselImageError(err.message))
         }
     }
 }
