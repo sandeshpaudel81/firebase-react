@@ -5,7 +5,7 @@ import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
 
 const Carousel = () => {
     const dispatch = useDispatch();
-    const {data: slides, success: carouselSuccess} = useSelector(state => state.carousel)
+    const {data: slides, success: carouselSuccess} = useSelector(state => state.carousel.getCarousel)
     let autoScroll = true;
     let slideInterval;
     let intervalTime = 5000;
