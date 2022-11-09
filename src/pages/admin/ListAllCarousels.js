@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarousel } from '../../slices/carouselSlice';
+import { FaEdit } from 'react-icons/fa';
+
 
 const ListAllCarousels = () => {
     const dispatch = useDispatch();
@@ -20,7 +22,7 @@ const ListAllCarousels = () => {
                     <p className='text-gray-600 text-sm font-medium mt-2'>Add | Update | Delete</p>
                 </div>
 
-                <div class="antialiased bg-gray-100 text-gray-600 px-4" x-data="app">
+                <div class="antialiased bg-gray-100 text-gray-600 px-4">
                     <div class="flex flex-col justify-center">
                         <div class="w-full bg-white">
                             <div class="overflow-x-auto p-3">
@@ -50,30 +52,30 @@ const ListAllCarousels = () => {
                                         {slides.map((slide) => (
                                         <tr>
                                             <td class="p-2">
-                                                <img src={slide.imageUrl} alt={slide.caption} className='h-[150px] object-cover'/>
+                                                <img src={slide.imageUrl} alt={slide.caption} className='h-[50px] w-[50px] object-cover'/>
                                             </td>
                                             <td class="p-2">
-                                                <div class="font-medium text-gray-800">
+                                                <div class="font-medium">
                                                     {slide.caption}
                                                 </div>
                                             </td>
                                             <td class="p-2">
-                                                <input type="checkbox" class="w-5 h-5" checked={slide.is_active}/>
+                                                <input type="checkbox" class="w-5 h-5" checked={slide.is_active} readOnly/>
                                             </td>
                                             <td class="p-2">
-                                                <div class="text-left font-medium text-green-500">
+                                                <div class="text-left font-medium">
                                                     {slide.linkTo}
                                                 </div>
                                             </td>
                                             <td class="p-2">
-                                                <div class="font-medium text-gray-800">
-                                                    {/* {slide.datetime} */}
+                                                <div class="font-medium">
+                                                    {slide.datetime.toDate()}
                                                 </div>
                                             </td>
                                             <td class="p-2">
                                                 <div class="flex justify-center">
                                                     <button>
-                                                        delete
+                                                        <FaEdit className='text-2xl text-primary hover:text-primaryDark'/>
                                                     </button>
                                                 </div>
                                             </td>
