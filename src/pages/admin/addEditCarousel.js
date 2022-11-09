@@ -8,10 +8,10 @@ import { uploadCarouselImage } from '../../slices/carouselSlice'
 
 const AddEditCarousel = () => {
     const [image, setImage] = useState("")
-    const [caption, setCaption] =  useState("Hello")
+    const [caption, setCaption] =  useState("Caption of the slide")
     const [isActive, setIsActive] =  useState(true)
-    const [linkTo, setLinkTo] =  useState("Hello")
-    const [imageUrl, setImageUrl] = useState("Hello")
+    const [linkTo, setLinkTo] =  useState("http://localhost:3000/")
+    const [imageUrl, setImageUrl] = useState("Url of the image")
     const [progress, setProgress] = useState(0)
 
     const dispatch = useDispatch()
