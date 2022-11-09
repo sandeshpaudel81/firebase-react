@@ -27,7 +27,7 @@ const ListAllCarousels = () => {
                                             <div class="font-semibold text-left">LinkTo</div>
                                         </th>
                                         <th class="p-2">
-                                            <div class="font-semibold text-center">Uploaded Date Time</div>
+                                            <div class="font-semibold text-center">Uploaded Datetime</div>
                                         </th>
                                     </tr>
                                 </thead>
