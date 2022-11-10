@@ -22,58 +22,58 @@ const ListAllCarousels = () => {
                     <p className='text-gray-600 text-sm font-medium mt-2'>Add | Update | Delete</p>
                 </div>
 
-                <div class="antialiased bg-gray-100 text-gray-600 px-4">
-                    <div class="flex flex-col justify-center">
-                        <div class="w-full bg-white">
-                            <div class="overflow-x-auto p-3">
-                                <table class="table-auto w-full">
-                                    <thead class="text-xs font-semibold uppercase text-gray-800 bg-gray-300">
+                <div className="antialiased bg-gray-100 text-gray-600 px-4">
+                    <div className="flex flex-col justify-center">
+                        <div className="w-full bg-white">
+                            <div className="overflow-x-auto p-3">
+                                <table className="table-auto w-full">
+                                    <thead className="text-xs font-semibold uppercase text-gray-800 bg-gray-300">
                                         <tr>
-                                            <th class="p-2">
-                                                <div class="font-semibold text-left">Image</div>
+                                            <th className="p-2">
+                                                <div className="font-semibold text-left">Image</div>
                                             </th>
-                                            <th class="p-2">
-                                                <div class="font-semibold text-left">Caption</div>
+                                            <th className="p-2">
+                                                <div className="font-semibold text-left">Caption</div>
                                             </th>
-                                            <th class="p-2">
-                                                <div class="font-semibold text-left">Status</div>
+                                            <th className="p-2">
+                                                <div className="font-semibold text-left">Status</div>
                                             </th>
-                                            <th class="p-2">
-                                                <div class="font-semibold text-left">LinkTo</div>
+                                            <th className="p-2">
+                                                <div className="font-semibold text-left">LinkTo</div>
                                             </th>
-                                            <th class="p-2">
-                                                <div class="font-semibold text-center">Uploaded Datetime</div>
+                                            <th className="p-2">
+                                                <div className="font-semibold text-left">Uploaded Datetime</div>
                                             </th>
                                             <th></th>
                                         </tr>
                                     </thead>
 
-                                    <tbody class="text-sm divide-y divide-gray-400">
+                                    <tbody className="text-sm divide-y divide-gray-400">
                                         {slides.map((slide) => (
-                                        <tr>
-                                            <td class="p-2">
+                                        <tr key={slide.id}>
+                                            <td className="p-2">
                                                 <img src={slide.imageUrl} alt={slide.caption} className='h-[50px] w-[50px] object-cover'/>
                                             </td>
-                                            <td class="p-2">
-                                                <div class="font-medium">
+                                            <td className="p-2">
+                                                <div className="font-medium">
                                                     {slide.caption}
                                                 </div>
                                             </td>
-                                            <td class="p-2">
-                                                <input type="checkbox" class="w-5 h-5" checked={slide.is_active} readOnly/>
+                                            <td className="p-2">
+                                                <input type="checkbox" className="w-5 h-5" checked={slide.is_active} readOnly/>
                                             </td>
-                                            <td class="p-2">
-                                                <div class="text-left font-medium">
+                                            <td className="p-2">
+                                                <div className="text-left font-medium">
                                                     {slide.linkTo}
                                                 </div>
                                             </td>
-                                            <td class="p-2">
-                                                <div class="font-medium">
-                                                    {slide.datetime.toDate()}
+                                            <td className="p-2">
+                                                <div className="font-medium">
+                                                    {slide.datetime.toDate().toString()}
                                                 </div>
                                             </td>
-                                            <td class="p-2">
-                                                <div class="flex justify-center">
+                                            <td className="p-2">
+                                                <div className="flex justify-center">
                                                     <button>
                                                         <FaEdit className='text-2xl text-primary hover:text-primaryDark'/>
                                                     </button>
