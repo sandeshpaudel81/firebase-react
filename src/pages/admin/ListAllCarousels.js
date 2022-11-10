@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment/moment';
 import { fetchCarousel } from '../../slices/carouselSlice';
 import { FaEdit } from 'react-icons/fa';
 
@@ -69,7 +70,7 @@ const ListAllCarousels = () => {
                                             </td>
                                             <td className="p-2">
                                                 <div className="font-medium">
-                                                    {slide.datetime.toDate().toString()}
+                                                    {moment(slide.datetime.toDate()).format("dddd, MMMM Do YYYY")}
                                                 </div>
                                             </td>
                                             <td className="p-2">

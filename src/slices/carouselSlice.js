@@ -95,6 +95,11 @@ export const carouselReducer = combineReducers({
     addCarousel: addCarouselSlice.reducer,
 });
 
+// convert timestamp to date
+
+export function timestampToDate(){
+    
+}
 
 // thunks
 
