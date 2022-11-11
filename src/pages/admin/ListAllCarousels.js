@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarousel } from '../../slices/carouselSlice';
 import { FaEdit } from 'react-icons/fa';
+import AdminNavbar from '../../components/AdminNavbar';
 
 
 const ListAllCarousels = () => {
@@ -17,12 +18,13 @@ const ListAllCarousels = () => {
     return (
         <div>
             <div className='container mx-auto px-5 py-10 md:py-20'>
-                <div className='border-l-8 border-primary px-5'>
+                <AdminNavbar/>
+                <div className='border-l-8 border-primary px-5 mt-5'>
                     <h2 className='text-primary font-bold text-3xl'>All <span className='text-primaryDark'>Slides</span></h2>
                     <p className='text-gray-600 text-sm font-medium mt-2'>Add | Update | Delete</p>
                 </div>
 
-                <div className="antialiased bg-gray-100 text-gray-600 px-4">
+                <div className="antialiased bg-gray-100 text-gray-600 px-5">
                     <div className="flex flex-col justify-center">
                         <div className="w-full bg-white">
                             <div className="overflow-x-auto p-3">
