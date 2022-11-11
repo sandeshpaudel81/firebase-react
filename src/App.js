@@ -7,6 +7,8 @@ import ProjectList from './pages/ProjectList';
 import AlbumList from './pages/AlbumList';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+import Dashboard from './pages/admin/Dashboard';
 import AddEditCarousel from './pages/admin/AddEditCarousel';
 import ListAllCarousels from './pages/admin/ListAllCarousels';
 
@@ -20,6 +22,7 @@ function App() {
           <Route path="/projects" element={<ProjectList/>} />
           <Route path="/albums" element={<AlbumList/>} />
           
+          <Route path='/admin' element={<Dashboard/>} />
           <Route path="/admin/carousels" element={<ListAllCarousels/>} />
           <Route path="/admin/carousels/add" element={<AddEditCarousel/>} />
         </Routes>
