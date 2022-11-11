@@ -112,6 +112,7 @@ export function fetchCarousel(){
                 query(collection(db, "carousel"))
             );
             slides.docs.forEach((doc) => {
+                console.log(doc.data())
                 carousel.push({ ...doc.data(), id: doc.id})
             });
             dispatch(getCarouselData(carousel))
