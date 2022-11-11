@@ -3,6 +3,7 @@ import {getDocs, query, collection, addDoc, serverTimestamp} from "firebase/fire
 import {db, storage} from "../firebase-config"
 import { combineReducers } from "@reduxjs/toolkit";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import moment from "moment";
 
 const getCarouselSlice = createSlice({
     name: 'getCarousel',
@@ -97,8 +98,8 @@ export const carouselReducer = combineReducers({
 
 // convert timestamp to date
 
-export function timestampToDate(){
-    
+export function timestampToDate(datetime){
+    return String(moment(datetime.toDate()).format("dddd, MMMM Do YYYY"))
 }
 
 // thunks
@@ -112,8 +113,8 @@ export function fetchCarousel(){
                 query(collection(db, "carousel"))
             );
             slides.docs.forEach((doc) => {
-                console.log(doc.data())
-                carousel.push({ ...doc.data(), id: doc.id})
+                const datetime = timestampToDate(doc.data().datetime)
+                carousel.push({ ...doc.data(), id: doc.id, datetime: datetime})
             });
             dispatch(getCarouselData(carousel))
             dispatch(getCarouselLoading(false))
