@@ -112,13 +112,13 @@ const Home = () => {
                     </div>
                     <div className='grid grid-cols-3 gap-10 mt-5 md:mt-10'>
                         <div className='col-span-3 md:col-span-1'>
-                            Career/Volunteer
+                            Career/Volunteer - vacancies
                         </div>
                         <div className='col-span-3 md:col-span-1'>
-                            Donate For Change
+                            Donate For Change - donate now
                         </div>
                         <div className='col-span-3 md:col-span-1'>
-                            Work With Us
+                            Work With Us - life member
                         </div>
                     </div>
                 </div>
