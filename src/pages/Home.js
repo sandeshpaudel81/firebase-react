@@ -110,6 +110,11 @@ const Home = () => {
                         <h2 className='text-primary font-bold text-3xl'>Get <span className='text-white'>Involved</span></h2>
                         <p className='uppercase text-gray-400 text-sm font-medium mt-2'>become part of the organization</p>
                     </div>
+                    <div className='grid grid-cols-3'>
+                        <div>Careers/Volunteers</div>
+                        <div>Donate</div>
+                        <div>Work with us</div>
+                    </div>
                 </div>
             </div>
         </div>
