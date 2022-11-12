@@ -101,7 +101,9 @@ const Home = () => {
 
             {/* Awards & Achievements */}
             <div>Awards & Achievements</div>
+            {/* Gallery */}
             <div>Gallery</div>
+            {/* Get Involved */}
             <div>Get Involved</div>
         </div>
     )
