@@ -5,6 +5,7 @@ import { fetchProjects } from '../slices/projectSlice';
 
 import Chairman from '../assets/chairman-image.png'
 import projectImage from '../assets/car1.jpg'
+import getInvolvedImage from '../assets/get-involved-image.png'
 
 // components
 import Carousel from '../components/Carousel'
@@ -103,6 +104,7 @@ const Home = () => {
             <div>Awards & Achievements</div>
             {/* Gallery */}
             <div>Gallery</div>
+
             {/* Get Involved */}
             <div className='bg-slate-900'>
                 <div className='container mx-auto px-5 py-10 md:py-20'>
@@ -111,19 +113,25 @@ const Home = () => {
                         <p className='uppercase text-gray-400 text-sm font-medium mt-2'>become part of the organization</p>
                     </div>
                     <div className='grid grid-cols-2 gap-10 mt-5 md:mt-10'>
-                        <div className='col-span-2 md:col-span-1'>
+                        <div className='col-span-2 md:col-span-1 grid grid-cols-3'>
                             <div className='col-span-3 md:col-span-1'>
-                                Career/Volunteer - vacancies
+                                <div>
+                                    Career/Volunteer - vacancies
+                                </div>
                             </div>
                             <div className='col-span-3 md:col-span-1'>
-                                Donate For Change - donate now
+                                <div>
+                                    Donate For Change - donate now
+                                </div>
                             </div>
                             <div className='col-span-3 md:col-span-1'>
-                                Work With Us - life member
+                                <div>
+                                    Work With Us - life member
+                                </div>
                             </div>
                         </div>
                         <div className='col-span-2 md:col-span-1'>
-                            
+                            <img src={getInvolvedImage} alt='Work in KADAM'/>
                         </div>
                     </div>
                 </div>
