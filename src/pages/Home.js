@@ -113,19 +113,19 @@ const Home = () => {
                         <p className='uppercase text-gray-400 text-sm font-medium mt-2'>become part of the organization</p>
                     </div>
                     <div className='grid grid-cols-2 gap-10 mt-5 md:mt-10'>
-                        <div className='col-span-2 md:col-span-1 grid grid-cols-3'>
+                        <div className='col-span-2 md:col-span-1 grid grid-cols-3 px-20 gap-2'>
                             <div className='col-span-3 md:col-span-1'>
-                                <div>
+                                <div className='bg-sdgOrange'>
                                     Career/Volunteer - vacancies
                                 </div>
                             </div>
                             <div className='col-span-3 md:col-span-1'>
-                                <div>
+                                <div className='bg-sdgYellow'>
                                     Donate For Change - donate now
                                 </div>
                             </div>
                             <div className='col-span-3 md:col-span-1'>
-                                <div>
+                                <div className='bg-sdgGreen'>
                                     Work With Us - life member
                                 </div>
                             </div>
