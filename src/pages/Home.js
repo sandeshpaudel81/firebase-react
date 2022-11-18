@@ -6,6 +6,9 @@ import { fetchProjects } from '../slices/projectSlice';
 import Chairman from '../assets/chairman-image.png'
 import projectImage from '../assets/car1.jpg'
 import getInvolvedImage from '../assets/get-involved-image.png'
+import donation from '../assets/donation.png'
+import workWithUs from '../assets/workwithus.png'
+import vacancies from '../assets/vacancies.png'
 
 // components
 import Carousel from '../components/Carousel'
@@ -114,19 +117,22 @@ const Home = () => {
                     </div>
                     <div className='grid grid-cols-2 gap-10 mt-5 md:mt-10'>
                         <div className='col-span-2 md:col-span-1 grid grid-cols-3 px-20 gap-2'>
-                            <div className='col-span-3 md:col-span-1'>
+                            <div className='col-span-3 md:col-span-1 pt-[100px]'>
                                 <div className='bg-sdgOrange'>
-                                    Career/Volunteer - vacancies
+                                    <h3 className='uppercase font-semibold text-white p-2'>Career/Volunteer</h3> - vacancies
+                                    <img src={vacancies} alt='Job vacancies'/>
                                 </div>
                             </div>
                             <div className='col-span-3 md:col-span-1'>
                                 <div className='bg-sdgYellow'>
-                                    Donate For Change - donate now
+                                    <h3 className='uppercase font-semibold text-white p-2'>Donate For Change</h3> - donate now
+                                    <img src={donation} alt='Donate Us'/>
                                 </div>
                             </div>
-                            <div className='col-span-3 md:col-span-1'>
+                            <div className='col-span-3 md:col-span-1 pt-[100px]'>
                                 <div className='bg-sdgGreen'>
-                                    Work With Us - life member
+                                    <h3 className='uppercase font-semibold text-white p-2'>Work With Us</h3> - life member
+                                    <img src={workWithUs} alt='Work with us in KADAM'/>
                                 </div>
                             </div>
                         </div>

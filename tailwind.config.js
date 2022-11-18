@@ -17,7 +17,7 @@ module.exports = {
         primaryD: "#05a",
         primaryDark: "#048",
         sdgOrange: "#e9432f",
-        sdgYellow: "#fbc318",
+        sdgYellow: '#f59c2d',
         sdgGreen: "#4c9e39",
       },
       // backgroundImage: {
