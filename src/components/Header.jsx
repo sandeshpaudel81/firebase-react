@@ -17,14 +17,14 @@ const Header = () => {
     return (
         <nav className="bg-slate-300 shadow-lg shadow-gray-400 relative z-20">
             <div className="container mx-auto">
-                <div className='md:hidden w-4/5 mx-auto'><img src={logo} alt='Kadam Myagdi Logo'></img></div>
+                <div className='md:hidden w-3/5 mx-auto'><img src={logo} alt='Kadam Myagdi Logo'></img></div>
                 <div className="flex items-center justify-around font-semibold">
-                    <div className='hidden md:block w-64'><img src={logo} alt='Kadam Myagdi Logo'></img></div>
-                    <ul className="hidden md:flex uppercase items-center gap-10 text-gray-600">
+                    <div className='hidden md:block w-64 mr-10'><img src={logo} alt='Kadam Myagdi Logo'></img></div>
+                    <ul className="hidden md:flex uppercase items-center gap-5 text-gray-600 text-sm">
                         <li className="hover:text-primary"><Link to='/'><p className="p-3">Home</p></Link></li>
                         <div className="p-3 group cursor-pointer">
                             <h2 className="group-hover:text-primary flex">About <FaAngleDown className='mt-1 ml-2'/></h2>
-                            <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
+                            <div className="absolute top-10 hidden group-hover:block hover:block duration-700">
                                 <div className="py-3">
                                     <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-l-2 border-t-2 border-gray-400"></div>
                                 </div>
@@ -38,7 +38,7 @@ const Header = () => {
                         </div>
                         <div className="p-3 group cursor-pointer">
                             <h2 className="group-hover:text-primary flex">Projects <FaAngleDown className='mt-1 ml-2'/></h2>
-                            <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
+                            <div className="absolute top-10 hidden group-hover:block hover:block duration-700">
                                 <div className="py-3">
                                     <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-l-2 border-t-2 border-gray-400"></div>
                                 </div>
@@ -49,10 +49,11 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
+                        <li className="hover:text-primary"><Link to='#'><p className="p-3">Notices</p></Link></li>
                         <li className="hover:text-primary"><Link to='#'><p className="p-3">News</p></Link></li>
                         <div className="p-3 group cursor-pointer">
                             <h2 className="group-hover:text-primary flex">Team <FaAngleDown className='mt-1 ml-2'/></h2>
-                            <div className="absolute top-16 hidden group-hover:block hover:block duration-700">
+                            <div className="absolute top-10 hidden group-hover:block hover:block duration-700">
                                 <div className="py-3">
                                     <div className="w-4 h-4 left-4 absolute mt-1 bg-slate-300 rotate-45 border-l-2 border-t-2 border-gray-400"></div>
                                 </div>
@@ -71,7 +72,7 @@ const Header = () => {
                     </ul>
                     <ul className={`sidebar md:hidden bg-primary fixed w-full h-full overflow-y-scroll bottom-0 text-white uppercase duration-500 ${sidebarOpen ? 'left-0':'left-[-100%]'}`}>
                         <div className="flex bg-white p-5">
-                            <img src={logo} alt="kadam myagdi logo"/>
+                            <img src={logo} className='w-3/5 mx-auto' alt="kadam myagdi logo"/>
                             <div className="absolute right-4 top-2 cursor-pointer" onClick={() => setSidebarOpen(false)}><FaTimes className='text-2xl text-black hover:text-primary'/></div>
                         </div>
                         <li className="border-b-2 hover:text-primaryDark"><Link to='/'><h1 className='p-3'>Home</h1></Link></li>
@@ -92,6 +93,7 @@ const Header = () => {
                                 <li className="hover:text-primaryDark"><Link to='/projects'><p className="p-3">All Projects</p></Link></li>
                             </div>
                         </div>
+                        <li className="border-b-2 hover:text-primaryDark"><Link to='#'><h1 className='p-3'>Notices</h1></Link></li>
                         <li className="border-b-2 hover:text-primaryDark"><Link to='#'><h1 className='p-3'>News</h1></Link></li>
                         <div className="border-b-2 p-3 cursor-pointer">
                             <h2 className="group-hover:text-primaryDark flex">Team <FaAngleDown className='mt-1 ml-2'/></h2>

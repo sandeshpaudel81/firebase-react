@@ -39,7 +39,7 @@ const Carousel = () => {
         return () => clearInterval(slideInterval)
     }, [currentSlide])
     return (
-        <div className='carouselBg py-2 md:py-20 relative z-10'>
+        <div className='carouselBg py-2 relative z-10'>
             <div className='container mx-auto relative'>
                 <button className='absolute p-2 group left-0 top-5 md:inset-y-0' onClick={prevSlide}><FaAngleLeft className='text-white group-hover:text-primary text-5xl'/></button>
                 <button className='absolute p-2 group top-5 md:inset-y-0 right-0' onClick={nextSlide}><FaAngleRight className='text-white group-hover:text-primary text-5xl'/></button>
@@ -50,7 +50,7 @@ const Carousel = () => {
                         </div>
                         <div className='col-span-8 md:col-span-3 text-white p-2 md:pt-48 md:pl-20' initial={{opacity: 0}} animate={{opacity: 1, transition:{duration: 0.5}}}>
                             <p className='bg-gray-600/75 p-3 rounded-md'>{slide.caption}</p>
-                            <div><a href={slide.linkTo} target="_blank" rel='noreferrer'><button className='bg-primary rounded-lg px-5 py-3 mt-3 md:mt-8 hover:bg-primaryDark'>See More...</button></a></div>
+                            <div><a href={slide.linkTo} target="_blank" rel='noreferrer'><button className='bg-primary rounded-lg p-2 md:px-5 md:py-3 mt-3 md:mt-8 hover:bg-primaryDark'>See More...</button></a></div>
                         </div>
                     </div>
                 ))}

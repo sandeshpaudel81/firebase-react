@@ -16,6 +16,13 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
   measurementId: process.env.REACT_APP_MEASUREMENT_ID
+  // apiKey: "AIzaSyAy7XDvl-N-MbdDx93Ies6CNTqF81kOvOg",
+  // authDomain: "kadam-myagdi.firebaseapp.com",
+  // projectId: "kadam-myagdi",
+  // storageBucket: "kadam-myagdi.appspot.com",
+  // messagingSenderId: "774905408025",
+  // appId: "1:774905408025:web:d3782e5c44c0f0928c1888",
+  // measurementId: "G-VBXEV06EFL"
 };
 
 // Initialize Firebase

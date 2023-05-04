@@ -100,7 +100,7 @@ const AddEditCarousel = ({history}) => {
                     </div>
                 </div>
                 <div className='flex justify-start mt-5'>
-                    <Link to="#" className='uppercase text-primary hover:text-primaryDark'>
+                    <Link to="/admin/carousels" className='uppercase text-primary hover:text-primaryDark'>
                         <p className='flex items-center font-medium'><FaChevronLeft className='mr-3'/>All Slides</p>
                     </Link>
                 </div>

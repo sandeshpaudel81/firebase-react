@@ -29,10 +29,10 @@ const Home = () => {
     }, [dispatch, projectSuccess]);
 
     const news = [
-        {"image": projectImage, "title": "Title 10", "content": "Do non irure nisi anim et anim. Voluptate elit eu sint amet anim pariatur incididunt nulla ex tempor adipisicing. Aliquip mollit ipsum id ad anim id duis quis commodo proident. Commodo laboris elit pariatur dolore irure. Sunt ut adipisicing nulla dolor. Excepteur cillum voluptate voluptate qui excepteur nisi incididunt proident adipisicing."},
-        {"image": projectImage, "title": "Title 20", "content": "Amet Lorem laborum duis ipsum consequat exercitation eu occaecat nulla. Magna nostrud non do ea amet. Excepteur aliquip reprehenderit consectetur commodo amet laboris laborum adipisicing culpa reprehenderit. Ullamco adipisicing Lorem et reprehenderit cupidatat. Nisi reprehenderit mollit velit enim magna do ad tempor nisi anim labore eu excepteur ad."},
-        {"image": projectImage, "title": "Title 30", "content": "Esse in amet et esse adipisicing velit duis dolor ipsum in nostrud consectetur. Amet dolore aute sit in. Mollit et ea adipisicing deserunt nostrud nisi nulla."},
-        {"image": projectImage, "title": "Title 40", "content": "Ullamco aliqua incididunt occaecat ex labore aliqua ullamco culpa est occaecat est exercitation exercitation. Pariatur deserunt ullamco adipisicing sint id aliquip. Irure nostrud velit aliqua incididunt veniam. Mollit laborum in laborum consectetur in eu velit."}
+        {"id":1, "image": projectImage, "title": "Title 10", "content": "Do non irure nisi anim et anim. Voluptate elit eu sint amet anim pariatur incididunt nulla ex tempor adipisicing. Aliquip mollit ipsum id ad anim id duis quis commodo proident. Commodo laboris elit pariatur dolore irure. Sunt ut adipisicing nulla dolor. Excepteur cillum voluptate voluptate qui excepteur nisi incididunt proident adipisicing."},
+        {"id":2, "image": projectImage, "title": "Title 20", "content": "Amet Lorem laborum duis ipsum consequat exercitation eu occaecat nulla. Magna nostrud non do ea amet. Excepteur aliquip reprehenderit consectetur commodo amet laboris laborum adipisicing culpa reprehenderit. Ullamco adipisicing Lorem et reprehenderit cupidatat. Nisi reprehenderit mollit velit enim magna do ad tempor nisi anim labore eu excepteur ad."},
+        {"id":3, "image": projectImage, "title": "Title 30", "content": "Esse in amet et esse adipisicing velit duis dolor ipsum in nostrud consectetur. Amet dolore aute sit in. Mollit et ea adipisicing deserunt nostrud nisi nulla."},
+        {"id":4, "image": projectImage, "title": "Title 40", "content": "Ullamco aliqua incididunt occaecat ex labore aliqua ullamco culpa est occaecat est exercitation exercitation. Pariatur deserunt ullamco adipisicing sint id aliquip. Irure nostrud velit aliqua incididunt veniam. Mollit laborum in laborum consectetur in eu velit."}
     ]
     return (
         <div>
@@ -92,7 +92,7 @@ const Home = () => {
                     </div>
                     <div className='grid grid-cols-4 gap-10 mt-5 md:mt-10'>
                         {news.map((item) => (
-                            <News title={item.title} content={item.content} image={item.image} />
+                            <News title={item.title} content={item.content} image={item.image} key={item.id}/>
                         ))}
                     </div>
                     <div className='flex justify-end mt-5'>
@@ -119,7 +119,7 @@ const Home = () => {
                         <div className='col-span-2 md:col-span-1 grid grid-cols-3 px-20 gap-2'>
                             <div className='col-span-3 md:col-span-1 pt-[100px]'>
                                 <div className='bg-sdgOrange'>
-                                    <h3 className='uppercase font-semibold text-white p-2'>Career/Volunteer</h3> - vacancies
+                                    <h3 className='uppercase font-semibold text-white p-2'>Career / Volunteer</h3> - vacancies
                                     <img src={vacancies} alt='Job vacancies'/>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ const Home = () => {
                             </div>
                             <div className='col-span-3 md:col-span-1 pt-[100px]'>
                                 <div className='bg-sdgGreen'>
-                                    <h3 className='uppercase font-semibold text-white p-2'>Work With Us</h3> - life member
+                                    <h3 className='uppercase font-semibold text-white p-2'>Work In A Team</h3> - life member
                                     <img src={workWithUs} alt='Work with us in KADAM'/>
                                 </div>
                             </div>
